@@ -1,0 +1,1324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f4d88514-0d00-440f-877e-ad9f6a3490fe" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/untitled$handsonmedia.coverage" NAME="handsonmedia Coverage Results" MODIFIED="1495831140331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$filereadmultiparts_mysql.coverage" NAME="filereadmultiparts_mysql Coverage Results" MODIFIED="1498158214212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$excelfileread.coverage" NAME="excelfileread Coverage Results" MODIFIED="1498353334472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$filereadmultiparts.coverage" NAME="filereadmultiparts Coverage Results" MODIFIED="1498353131989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$filereadmedia.coverage" NAME="filereadmedia Coverage Results" MODIFIED="1497295173705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$learn.coverage" NAME="learn Coverage Results" MODIFIED="1498350770353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$imagereader.coverage" NAME="imagereader Coverage Results" MODIFIED="1495835673423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$filereadexcel.coverage" NAME="filereadexcel Coverage Results" MODIFIED="1500416427405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$queryinsert.coverage" NAME="queryinsert Coverage Results" MODIFIED="1498170260681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$updated_doc_reader.coverage" NAME="updated_doc_reader Coverage Results" MODIFIED="1500416587174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$testquery.coverage" NAME="testquery Coverage Results" MODIFIED="1497295594848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$learnoracle.coverage" NAME="learnoracle Coverage Results" MODIFIED="1498086759360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$fileread.coverage" NAME="fileread Coverage Results" MODIFIED="1497400499784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled$python_mysql_connect1.coverage" NAME="python_mysql_connect1 Coverage Results" MODIFIED="1495235032568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="untitled" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="learn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/learn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1232">
+              <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="excelfileread.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/excelfileread.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filereadexcel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/filereadexcel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7424">
+              <caret line="552" column="0" lean-forward="false" selection-start-line="552" selection-start-column="0" selection-end-line="552" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#5148#5399#0" expanded="false" />
+                <element signature="e#5434#5960#0" expanded="false" />
+                <element signature="e#5987#6228#0" expanded="false" />
+                <element signature="e#15532#18651#0" expanded="false" />
+                <marker date="1500416424958" expanded="true" signature="5183:5197" ph="SELECT * FRO... missing_value" />
+                <marker date="1500416424958" expanded="true" signature="5474:5516" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="5598:5671" ph="INSERT INTO protocol... " />
+                <marker date="1500416424958" expanded="true" signature="6022:6124" ph="SELECT proto... protocol_id" />
+                <marker date="1500416424958" expanded="true" signature="6048:6106" ph="SELECT proto... protocol" />
+                <marker date="1500416424958" expanded="true" signature="6403:6453" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="6403:10293" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="6610:6649" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="6737:7202" ph="INSERT INTO recon... " />
+                <marker date="1500416424958" expanded="true" signature="8167:8206" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="8294:8534" ph="INSERT INTO setup... " />
+                <marker date="1500416424958" expanded="true" signature="9220:9259" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="9347:9588" ph="INSERT INTO scout... " />
+                <marker date="1500416424958" expanded="true" signature="9347:9610" ph="INSERT INTO scout... " />
+                <marker date="1500416424958" expanded="true" signature="10474:10523" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="10681:10720" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="10808:11297" ph="INSERT INTO recon... " />
+                <marker date="1500416424958" expanded="true" signature="12470:12509" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="12597:12849" ph="INSERT INTO setup... " />
+                <marker date="1500416424958" expanded="true" signature="13670:13717" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="13802:14296" ph="INSERT INTO protocol_scan... " />
+                <marker date="1500416424958" expanded="true" signature="15677:15726" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="15884:15923" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="16011:16500" ph="INSERT INTO recon... " />
+                <marker date="1500416424958" expanded="true" signature="17681:17720" ph="Select seque... dual" />
+                <marker date="1500416424958" expanded="true" signature="17808:17932" ph="INSERT INTO scout... " />
+                <marker date="1500416424958" expanded="true" signature="17808:18061" ph="INSERT INTO scout... " />
+                <marker date="1500416424958" expanded="true" signature="17808:18084" ph="INSERT INTO scout... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filereadmultiparts.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/filereadmultiparts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5856">
+              <caret line="380" column="51" lean-forward="false" selection-start-line="380" selection-start-column="51" selection-end-line="380" selection-end-column="51" />
+              <folding>
+                <element signature="e#35#125#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="queryinsert.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/queryinsert.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+                <marker date="1500416549106" expanded="true" signature="188:230" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="311:384" ph="INSERT INTO protocol... " />
+                <marker date="1500416549106" expanded="true" signature="640:650" ph="Insert into protocol... " />
+                <marker date="1500416549106" expanded="true" signature="723:825" ph="SELECT id_pr... protocol" />
+                <marker date="1500416549106" expanded="true" signature="749:807" ph="SELECT proto... protocol" />
+                <marker date="1500416549106" expanded="true" signature="1007:1048" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="1129:1155" ph="INSERT INTO billing... " />
+                <marker date="1500416549106" expanded="true" signature="1129:1199" ph="INSERT INTO billing... " />
+                <marker date="1500416549106" expanded="true" signature="1482:1488" ph="Insert into billing... " />
+                <marker date="1500416549106" expanded="true" signature="1482:1491" ph="Insert into billing... " />
+                <marker date="1500416549106" expanded="true" signature="1928:1976" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="2069:2102" ph="INSERT INTO bolus_tracking... " />
+                <marker date="1500416549106" expanded="true" signature="2069:2170" ph="INSERT INTO bolus_tracking... " />
+                <marker date="1500416549106" expanded="true" signature="2594:2629" ph="Insert into bolus... " />
+                <marker date="1500416549106" expanded="true" signature="2795:2834" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="2916:3011" ph="INSERT INTO media... " />
+                <marker date="1500416549106" expanded="true" signature="3756:3801" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="3895:3917" ph="INSERT INTO medication... " />
+                <marker date="1500416549106" expanded="true" signature="3895:3924" ph="INSERT INTO medication... " />
+                <marker date="1500416549106" expanded="true" signature="3895:4030" ph="INSERT INTO medication... " />
+                <marker date="1500416549106" expanded="true" signature="3895:4106" ph="INSERT INTO medication... " />
+                <marker date="1500416549106" expanded="true" signature="5068:5113" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="5195:5225" ph="INSERT INTO " />
+                <marker date="1500416549106" expanded="true" signature="5195:5299" ph="INSERT INTO device_name... " />
+                <marker date="1500416549106" expanded="true" signature="7759:7798" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="7892:7917" ph="INSERT INTO recon... " />
+                <marker date="1500416549106" expanded="true" signature="7892:8147" ph="INSERT INTO recon... " />
+                <marker date="1500416549106" expanded="true" signature="7892:8259" ph="INSERT INTO recon... " />
+                <marker date="1500416549106" expanded="true" signature="7892:8277" ph="INSERT INTO recon... " />
+                <marker date="1500416549106" expanded="true" signature="7892:8373" ph="INSERT INTO recon... " />
+                <marker date="1500416549106" expanded="true" signature="12026:12069" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="12163:12184" ph="INSERT INTO recon_tab... " />
+                <marker date="1500416549106" expanded="true" signature="12163:12192" ph="INSERT INTO recon_tab... " />
+                <marker date="1500416549106" expanded="true" signature="12163:12646" ph="INSERT INTO recon_tab... " />
+                <marker date="1500416549106" expanded="true" signature="16015:16056" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="16150:16170" ph="INSERT INTO routine... " />
+                <marker date="1500416549106" expanded="true" signature="16150:16178" ph="INSERT INTO routine... " />
+                <marker date="1500416549106" expanded="true" signature="16150:16276" ph="INSERT INTO routine... " />
+                <marker date="1500416549106" expanded="true" signature="16150:16295" ph="INSERT INTO routine... " />
+                <marker date="1500416549106" expanded="true" signature="16150:16318" ph="INSERT INTO routine... " />
+                <marker date="1500416549106" expanded="true" signature="19375:19422" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="19516:19542" ph="INSERT INTO scan... " />
+                <marker date="1500416549106" expanded="true" signature="19516:19550" ph="INSERT INTO scan... " />
+                <marker date="1500416549106" expanded="true" signature="19516:19674" ph="INSERT INTO protocol_scan... " />
+                <marker date="1500416549106" expanded="true" signature="19516:19808" ph="INSERT INTO protocol_scan... " />
+                <marker date="1500416549106" expanded="true" signature="19516:19938" ph="INSERT INTO protocol_scan... " />
+                <marker date="1500416549106" expanded="true" signature="19516:20026" ph="INSERT INTO protocol_scan... " />
+                <marker date="1500416549106" expanded="true" signature="22697:22736" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="22818:22836" ph="INSERT INTO scout... " />
+                <marker date="1500416549106" expanded="true" signature="22818:22844" ph="INSERT INTO setup... " />
+                <marker date="1500416549106" expanded="true" signature="22818:22948" ph="INSERT INTO scout... " />
+                <marker date="1500416549106" expanded="true" signature="22818:23058" ph="INSERT INTO scout... " />
+                <marker date="1500416549106" expanded="true" signature="22818:23059" ph="INSERT INTO scout... " />
+                <marker date="1500416549106" expanded="true" signature="22818:23081" ph="INSERT INTO scout... " />
+                <marker date="1500416549106" expanded="true" signature="24449:24488" ph="Select seque... dual" />
+                <marker date="1500416549106" expanded="true" signature="24570:24588" ph="INSERT INTO setup... " />
+                <marker date="1500416549106" expanded="true" signature="24570:24594" ph="INSERT INTO setup... " />
+                <marker date="1500416549106" expanded="true" signature="24570:24700" ph="INSERT INTO setup... " />
+                <marker date="1500416549106" expanded="true" signature="24570:24810" ph="INSERT INTO setup... " />
+                <marker date="1500416549106" expanded="true" signature="25824:25838" ph="SELECT * FRO... missing_value" />
+                <marker date="1500416549106" expanded="true" signature="25824:25848" ph="SELECT * FRO... table_name" />
+                <marker date="1500416549106" expanded="true" signature="25824:25849" ph="SELECT * FRO... table_nme" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updated_doc_reader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/updated_doc_reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6208">
+              <caret line="480" column="23" lean-forward="true" selection-start-line="480" selection-start-column="23" selection-end-line="480" selection-end-column="23" />
+              <folding>
+                <element signature="e#17089#20588#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Delay</find>
+      <find>Scan_Delay</find>
+      <find>len(</find>
+      <find>Ref_kV</find>
+      <find>print</find>
+      <find>Charges</find>
+      <find>Scout</find>
+      <find>83</find>
+      <find>INSERT INTO routine  VALUES</find>
+      <find>INSERT INTO setup VALUES</find>
+      <find>INSERT INTO medication</find>
+      <find>scout</find>
+      <find>INSERT INTO scout</find>
+      <find>Extra_recon</find>
+      <find>INSERT INTO setup</find>
+      <find>INSERT INTO protocol_scan  VALUES</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/backup.py" />
+        <option value="$PROJECT_DIR$/handsonmedia.py" />
+        <option value="$PROJECT_DIR$/trial.py" />
+        <option value="$PROJECT_DIR$/imagereader.py" />
+        <option value="$PROJECT_DIR$/filereadmedia.py" />
+        <option value="$PROJECT_DIR$/testquery.py" />
+        <option value="$PROJECT_DIR$/fileread.py" />
+        <option value="$PROJECT_DIR$/python_mysql_connect1.py" />
+        <option value="$PROJECT_DIR$/learnoracle.py" />
+        <option value="$PROJECT_DIR$/query_backup.py" />
+        <option value="$PROJECT_DIR$/filereadmultiparts_mysql.py" />
+        <option value="$PROJECT_DIR$/learn.py" />
+        <option value="$PROJECT_DIR$/filereadmultiparts.py" />
+        <option value="$PROJECT_DIR$/excelfileread.py" />
+        <option value="$PROJECT_DIR$/filereadexcel.py" />
+        <option value="$PROJECT_DIR$/updated_doc_reader.py" />
+        <option value="$PROJECT_DIR$/queryinsert.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1052" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="C:/Python27/pythonw.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kadhvary\PycharmProjects\untitled" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.updated_doc_reader">
+    <configuration default="false" name="filereadmultiparts" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/filereadmultiparts.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="learn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/learn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="filereadexcel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/filereadexcel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="excelfileread" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/excelfileread.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="updated_doc_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/updated_doc_reader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="untitled" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.filereadmultiparts" />
+      <item index="1" class="java.lang.String" itemvalue="Python.learn" />
+      <item index="2" class="java.lang.String" itemvalue="Python.filereadexcel" />
+      <item index="3" class="java.lang.String" itemvalue="Python.excelfileread" />
+      <item index="4" class="java.lang.String" itemvalue="Python.updated_doc_reader" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.updated_doc_reader" />
+        <item index="1" class="java.lang.String" itemvalue="Python.filereadexcel" />
+        <item index="2" class="java.lang.String" itemvalue="Python.excelfileread" />
+        <item index="3" class="java.lang.String" itemvalue="Python.filereadmultiparts" />
+        <item index="4" class="java.lang.String" itemvalue="Python.learn" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4d88514-0d00-440f-877e-ad9f6a3490fe" name="Default" comment="" />
+      <created>1495139195212</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1495139195212</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1052" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38706258" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872748" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36461705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18172269" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="56" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/filereadexcel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#5148#5399#0" expanded="false" />
+            <element signature="e#5434#5960#0" expanded="false" />
+            <element signature="e#5987#6228#0" expanded="false" />
+            <element signature="e#15532#18651#0" expanded="false" />
+            <marker date="1500416424958" expanded="true" signature="5183:5197" ph="SELECT * FRO... missing_value" />
+            <marker date="1500416424958" expanded="true" signature="5474:5516" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="5598:5671" ph="INSERT INTO protocol... " />
+            <marker date="1500416424958" expanded="true" signature="6022:6124" ph="SELECT proto... protocol_id" />
+            <marker date="1500416424958" expanded="true" signature="6048:6106" ph="SELECT proto... protocol" />
+            <marker date="1500416424958" expanded="true" signature="6403:6453" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6403:10293" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6610:6649" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6737:7202" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="8167:8206" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="8294:8534" ph="INSERT INTO setup... " />
+            <marker date="1500416424958" expanded="true" signature="9220:9259" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="9347:9588" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="9347:9610" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="10474:10523" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="10681:10720" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="10808:11297" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="12470:12509" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="12597:12849" ph="INSERT INTO setup... " />
+            <marker date="1500416424958" expanded="true" signature="13670:13717" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="13802:14296" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416424958" expanded="true" signature="15677:15726" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="15884:15923" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="16011:16500" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="17681:17720" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="17808:17932" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="17808:18061" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="17808:18084" ph="INSERT INTO scout... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_mysql_connect1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="976">
+          <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmedia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excelfileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imagereader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="47" column="29" lean-forward="false" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmultiparts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5696">
+          <caret line="369" column="39" lean-forward="true" selection-start-line="369" selection-start-column="39" selection-end-line="369" selection-end-column="39" />
+          <folding>
+            <element signature="e#35#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queryinsert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3136">
+          <caret line="198" column="35" lean-forward="true" selection-start-line="198" selection-start-column="35" selection-end-line="198" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1500416549106" expanded="true" signature="188:230" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="311:384" ph="INSERT INTO protocol... " />
+            <marker date="1500416549106" expanded="true" signature="640:650" ph="Insert into protocol... " />
+            <marker date="1500416549106" expanded="true" signature="723:825" ph="SELECT id_pr... protocol" />
+            <marker date="1500416549106" expanded="true" signature="749:807" ph="SELECT proto... protocol" />
+            <marker date="1500416549106" expanded="true" signature="1007:1048" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="1129:1155" ph="INSERT INTO billing... " />
+            <marker date="1500416549106" expanded="true" signature="1129:1199" ph="INSERT INTO billing... " />
+            <marker date="1500416549106" expanded="true" signature="1482:1488" ph="Insert into billing... " />
+            <marker date="1500416549106" expanded="true" signature="1482:1491" ph="Insert into billing... " />
+            <marker date="1500416549106" expanded="true" signature="1928:1976" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="2069:2102" ph="INSERT INTO bolus_tracking... " />
+            <marker date="1500416549106" expanded="true" signature="2069:2170" ph="INSERT INTO bolus_tracking... " />
+            <marker date="1500416549106" expanded="true" signature="2594:2629" ph="Insert into bolus... " />
+            <marker date="1500416549106" expanded="true" signature="2795:2834" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="2916:3011" ph="INSERT INTO media... " />
+            <marker date="1500416549106" expanded="true" signature="3756:3801" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="3895:3917" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:3924" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:4030" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:4106" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="5068:5113" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="5195:5225" ph="INSERT INTO " />
+            <marker date="1500416549106" expanded="true" signature="5195:5299" ph="INSERT INTO device_name... " />
+            <marker date="1500416549106" expanded="true" signature="7759:7798" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="7892:7917" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8147" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8259" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8277" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8373" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="12026:12069" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="12163:12184" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="12163:12192" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="12163:12646" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="16015:16056" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="16150:16170" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16178" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16276" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16295" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16318" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="19375:19422" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="19516:19542" ph="INSERT INTO scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19550" ph="INSERT INTO scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19674" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19808" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19938" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:20026" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="22697:22736" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="22818:22836" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:22844" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="22818:22948" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23058" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23059" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23081" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="24449:24488" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="24570:24588" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24594" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24700" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24810" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="25824:25838" ph="SELECT * FRO... missing_value" />
+            <marker date="1500416549106" expanded="true" signature="25824:25848" ph="SELECT * FRO... table_name" />
+            <marker date="1500416549106" expanded="true" signature="25824:25849" ph="SELECT * FRO... table_nme" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadexcel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="70" column="24" lean-forward="true" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#5148#5399#0" expanded="false" />
+            <element signature="e#5434#5960#0" expanded="false" />
+            <element signature="e#5987#6228#0" expanded="false" />
+            <element signature="e#15532#18651#0" expanded="false" />
+            <marker date="1500416424958" expanded="true" signature="5183:5197" ph="SELECT * FRO... missing_value" />
+            <marker date="1500416424958" expanded="true" signature="5474:5516" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="5598:5671" ph="INSERT INTO protocol... " />
+            <marker date="1500416424958" expanded="true" signature="6022:6124" ph="SELECT proto... protocol_id" />
+            <marker date="1500416424958" expanded="true" signature="6048:6106" ph="SELECT proto... protocol" />
+            <marker date="1500416424958" expanded="true" signature="6403:6453" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6403:10293" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6610:6649" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6737:7202" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="8167:8206" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="8294:8534" ph="INSERT INTO setup... " />
+            <marker date="1500416424958" expanded="true" signature="9220:9259" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="9347:9588" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="9347:9610" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="10474:10523" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="10681:10720" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="10808:11297" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="12470:12509" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="12597:12849" ph="INSERT INTO setup... " />
+            <marker date="1500416424958" expanded="true" signature="13670:13717" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="13802:14296" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416424958" expanded="true" signature="15677:15726" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="15884:15923" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="16011:16500" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="17681:17720" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="17808:17932" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="17808:18061" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="17808:18084" ph="INSERT INTO scout... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_mysql_connect1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmedia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="100" column="20" lean-forward="true" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excelfileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imagereader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="47" column="29" lean-forward="false" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmultiparts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3104">
+          <caret line="207" column="32" lean-forward="true" selection-start-line="207" selection-start-column="32" selection-end-line="207" selection-end-column="32" />
+          <folding>
+            <element signature="e#35#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queryinsert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="104" column="37" lean-forward="true" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1500416549106" expanded="true" signature="188:230" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="311:384" ph="INSERT INTO protocol... " />
+            <marker date="1500416549106" expanded="true" signature="640:650" ph="Insert into protocol... " />
+            <marker date="1500416549106" expanded="true" signature="723:825" ph="SELECT id_pr... protocol" />
+            <marker date="1500416549106" expanded="true" signature="749:807" ph="SELECT proto... protocol" />
+            <marker date="1500416549106" expanded="true" signature="1007:1048" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="1129:1155" ph="INSERT INTO billing... " />
+            <marker date="1500416549106" expanded="true" signature="1129:1199" ph="INSERT INTO billing... " />
+            <marker date="1500416549106" expanded="true" signature="1482:1488" ph="Insert into billing... " />
+            <marker date="1500416549106" expanded="true" signature="1482:1491" ph="Insert into billing... " />
+            <marker date="1500416549106" expanded="true" signature="1928:1976" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="2069:2102" ph="INSERT INTO bolus_tracking... " />
+            <marker date="1500416549106" expanded="true" signature="2069:2170" ph="INSERT INTO bolus_tracking... " />
+            <marker date="1500416549106" expanded="true" signature="2594:2629" ph="Insert into bolus... " />
+            <marker date="1500416549106" expanded="true" signature="2795:2834" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="2916:3011" ph="INSERT INTO media... " />
+            <marker date="1500416549106" expanded="true" signature="3756:3801" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="3895:3917" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:3924" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:4030" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:4106" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="5068:5113" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="5195:5225" ph="INSERT INTO " />
+            <marker date="1500416549106" expanded="true" signature="5195:5299" ph="INSERT INTO device_name... " />
+            <marker date="1500416549106" expanded="true" signature="7759:7798" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="7892:7917" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8147" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8259" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8277" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8373" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="12026:12069" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="12163:12184" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="12163:12192" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="12163:12646" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="16015:16056" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="16150:16170" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16178" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16276" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16295" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16318" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="19375:19422" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="19516:19542" ph="INSERT INTO scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19550" ph="INSERT INTO scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19674" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19808" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19938" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:20026" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="22697:22736" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="22818:22836" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:22844" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="22818:22948" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23058" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23059" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23081" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="24449:24488" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="24570:24588" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24594" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24700" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24810" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="25824:25838" ph="SELECT * FRO... missing_value" />
+            <marker date="1500416549106" expanded="true" signature="25824:25848" ph="SELECT * FRO... table_name" />
+            <marker date="1500416549106" expanded="true" signature="25824:25849" ph="SELECT * FRO... table_nme" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_mysql_connect1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testquery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="63" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmedia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5232">
+          <caret line="337" column="18" lean-forward="true" selection-start-line="337" selection-start-column="18" selection-end-line="337" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excelfileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handsonmedia.py" />
+    <entry file="file://$PROJECT_DIR$/imagereader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="85" column="49" lean-forward="true" selection-start-line="85" selection-start-column="49" selection-end-line="85" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmultiparts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3568">
+          <caret line="232" column="70" lean-forward="true" selection-start-line="232" selection-start-column="70" selection-end-line="232" selection-end-column="70" />
+          <folding>
+            <element signature="e#35#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_mysql_connect1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/garth_stein.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/learn.py" />
+    <entry file="file://$USER_HOME$/Downloads/fileread" />
+    <entry file="file://$PROJECT_DIR$/trial.py" />
+    <entry file="file://$PROJECT_DIR$/pictures/image1.png" />
+    <entry file="file://$PROJECT_DIR$/backup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4726">
+          <caret line="410" column="15" lean-forward="false" selection-start-line="410" selection-start-column="15" selection-end-line="410" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handsonmedia.py" />
+    <entry file="file://$PROJECT_DIR$/testquery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="81" column="22" lean-forward="true" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imagereader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="47" column="29" lean-forward="false" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/mysql/connector/cursor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="850" column="0" lean-forward="false" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/query_backup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="460" column="18" lean-forward="false" selection-start-line="460" selection-start-column="18" selection-end-line="460" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmultiparts_mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_mysql_connect1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="60" column="38" lean-forward="false" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmedia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learnoracle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadmultiparts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5856">
+          <caret line="380" column="51" lean-forward="false" selection-start-line="380" selection-start-column="51" selection-end-line="380" selection-end-column="51" />
+          <folding>
+            <element signature="e#35#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queryinsert_mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="205" column="32" lean-forward="true" selection-start-line="205" selection-start-column="32" selection-end-line="205" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excelfileread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filereadexcel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7424">
+          <caret line="552" column="0" lean-forward="false" selection-start-line="552" selection-start-column="0" selection-end-line="552" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#5148#5399#0" expanded="false" />
+            <element signature="e#5434#5960#0" expanded="false" />
+            <element signature="e#5987#6228#0" expanded="false" />
+            <element signature="e#15532#18651#0" expanded="false" />
+            <marker date="1500416424958" expanded="true" signature="5183:5197" ph="SELECT * FRO... missing_value" />
+            <marker date="1500416424958" expanded="true" signature="5474:5516" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="5598:5671" ph="INSERT INTO protocol... " />
+            <marker date="1500416424958" expanded="true" signature="6022:6124" ph="SELECT proto... protocol_id" />
+            <marker date="1500416424958" expanded="true" signature="6048:6106" ph="SELECT proto... protocol" />
+            <marker date="1500416424958" expanded="true" signature="6403:6453" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6403:10293" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6610:6649" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="6737:7202" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="8167:8206" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="8294:8534" ph="INSERT INTO setup... " />
+            <marker date="1500416424958" expanded="true" signature="9220:9259" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="9347:9588" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="9347:9610" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="10474:10523" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="10681:10720" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="10808:11297" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="12470:12509" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="12597:12849" ph="INSERT INTO setup... " />
+            <marker date="1500416424958" expanded="true" signature="13670:13717" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="13802:14296" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416424958" expanded="true" signature="15677:15726" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="15884:15923" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="16011:16500" ph="INSERT INTO recon... " />
+            <marker date="1500416424958" expanded="true" signature="17681:17720" ph="Select seque... dual" />
+            <marker date="1500416424958" expanded="true" signature="17808:17932" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="17808:18061" ph="INSERT INTO scout... " />
+            <marker date="1500416424958" expanded="true" signature="17808:18084" ph="INSERT INTO scout... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updated_doc_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6208">
+          <caret line="480" column="23" lean-forward="true" selection-start-line="480" selection-start-column="23" selection-end-line="480" selection-end-column="23" />
+          <folding>
+            <element signature="e#17089#20588#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queryinsert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1500416549106" expanded="true" signature="188:230" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="311:384" ph="INSERT INTO protocol... " />
+            <marker date="1500416549106" expanded="true" signature="640:650" ph="Insert into protocol... " />
+            <marker date="1500416549106" expanded="true" signature="723:825" ph="SELECT id_pr... protocol" />
+            <marker date="1500416549106" expanded="true" signature="749:807" ph="SELECT proto... protocol" />
+            <marker date="1500416549106" expanded="true" signature="1007:1048" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="1129:1155" ph="INSERT INTO billing... " />
+            <marker date="1500416549106" expanded="true" signature="1129:1199" ph="INSERT INTO billing... " />
+            <marker date="1500416549106" expanded="true" signature="1482:1488" ph="Insert into billing... " />
+            <marker date="1500416549106" expanded="true" signature="1482:1491" ph="Insert into billing... " />
+            <marker date="1500416549106" expanded="true" signature="1928:1976" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="2069:2102" ph="INSERT INTO bolus_tracking... " />
+            <marker date="1500416549106" expanded="true" signature="2069:2170" ph="INSERT INTO bolus_tracking... " />
+            <marker date="1500416549106" expanded="true" signature="2594:2629" ph="Insert into bolus... " />
+            <marker date="1500416549106" expanded="true" signature="2795:2834" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="2916:3011" ph="INSERT INTO media... " />
+            <marker date="1500416549106" expanded="true" signature="3756:3801" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="3895:3917" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:3924" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:4030" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="3895:4106" ph="INSERT INTO medication... " />
+            <marker date="1500416549106" expanded="true" signature="5068:5113" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="5195:5225" ph="INSERT INTO " />
+            <marker date="1500416549106" expanded="true" signature="5195:5299" ph="INSERT INTO device_name... " />
+            <marker date="1500416549106" expanded="true" signature="7759:7798" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="7892:7917" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8147" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8259" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8277" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="7892:8373" ph="INSERT INTO recon... " />
+            <marker date="1500416549106" expanded="true" signature="12026:12069" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="12163:12184" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="12163:12192" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="12163:12646" ph="INSERT INTO recon_tab... " />
+            <marker date="1500416549106" expanded="true" signature="16015:16056" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="16150:16170" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16178" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16276" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16295" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="16150:16318" ph="INSERT INTO routine... " />
+            <marker date="1500416549106" expanded="true" signature="19375:19422" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="19516:19542" ph="INSERT INTO scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19550" ph="INSERT INTO scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19674" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19808" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:19938" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="19516:20026" ph="INSERT INTO protocol_scan... " />
+            <marker date="1500416549106" expanded="true" signature="22697:22736" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="22818:22836" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:22844" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="22818:22948" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23058" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23059" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="22818:23081" ph="INSERT INTO scout... " />
+            <marker date="1500416549106" expanded="true" signature="24449:24488" ph="Select seque... dual" />
+            <marker date="1500416549106" expanded="true" signature="24570:24588" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24594" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24700" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="24570:24810" ph="INSERT INTO setup... " />
+            <marker date="1500416549106" expanded="true" signature="25824:25838" ph="SELECT * FRO... missing_value" />
+            <marker date="1500416549106" expanded="true" signature="25824:25848" ph="SELECT * FRO... table_name" />
+            <marker date="1500416549106" expanded="true" signature="25824:25849" ph="SELECT * FRO... table_nme" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
