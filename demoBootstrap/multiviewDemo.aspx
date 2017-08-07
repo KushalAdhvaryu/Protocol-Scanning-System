@@ -14,8 +14,8 @@
             overflow-y:scroll;
         }
         .tableScroll {
-            
-           
+            height:350px;
+           overflow-y:scroll;
             overflow-x:scroll;
         }
     </style>
@@ -124,7 +124,7 @@
                      <Columns>
                         <asp:templatefield HeaderText="Select" >  
                         <itemtemplate>
-                            <asp:checkbox ID="cbBolusSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbSelect_CheckedChanged"></asp:checkbox>
+                            <asp:checkbox ID="cbBolusSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbBolusSelect_CheckedChanged"></asp:checkbox>
                             <asp:HiddenField ID="hfBolusId" runat="server" Value='<%#Eval("bolus_tracking_id") %>' />
                         </itemtemplate>
                         </asp:templatefield>
@@ -227,30 +227,34 @@
             </asp:View>
 
              <asp:View ID="View5" runat="server">
-             <!--   <asp:TextBox ID="TextBox5" runat="server" Text="Media" CssClass="form-control"></asp:TextBox> -->
+            
                 <strong>Media</strong>
                  <div class="table-responsive">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td><strong>PDF Name:</strong></td>                                    
-                                    <td><strong>PDF Version:</strong></td>    
-                                    <td><strong>PDF Url:</strong></td>      
-                                </tr>
-                                <tr>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
+              <asp:GridView ID="gvMedia" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbMediaSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbMediaSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfMediaId" runat="server" Value='<%#Eval("media_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="File Name">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMFileName" runat="server" Text='<%#Eval("pdf_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Version">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMVersion" runat="server" Text='<%#Eval("pdf_version") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Location">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMLocation" runat="server" Text='<%#Eval("pdf_url") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+                    </asp:GridView>
                 </div>
                   <strong>Editing Fields</strong><br />
                   <div class="table-responsive">
@@ -273,33 +277,54 @@
             </asp:View>
 
              <asp:View ID="View6" runat="server">
-             <!--   <asp:TextBox ID="TextBox6" runat="server" Text="Medication" CssClass="form-control"></asp:TextBox> -->
+           
             <strong>Medication</strong>
                 <div class="table-responsive">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td ><strong>Medication Link</strong></td>
-                                    <td><strong>Oral: </strong></td>
-                                    <td ><strong>Oral Instructions</strong></td>
-                                    <td><strong>IV: </strong></td>
-                                    <td ><strong>IV Instructions</strong></td>
-                                    <td><strong>Injection Rate: </strong></td>
-                                    <td ><strong>Injection Rate Instructions</strong></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>Link Path</td>
-                                    <td>Value</td>
-                                    <td >Oral special Instruction Content</td>
-                                    <td>Value</td>
-                                    <td >IV special Instruction Content</td>
-                                    <td>Value</td>
-                                    <td >Injection Rate special Instruction Content</td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
+                 <asp:GridView ID="gvMedication" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbMedicationSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbMedicationSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfMedicationId" runat="server" Value='<%#Eval("medication_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Oral Contrast">
+                        <ItemTemplate>
+                            <asp:Label ID="lblOral" runat="server" Text='<%#Eval("oral_contrast") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Oral Contrast Notes">
+                        <ItemTemplate>
+                            <asp:Label ID="lblOralNotes" runat="server" Text='<%#Eval("oral_contrast_notes") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="IV Contrast">
+                        <ItemTemplate>
+                            <asp:Label ID="lblIV" runat="server" Text='<%#Eval("iv_contrast") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="IV Contrast Notes">
+                        <ItemTemplate>
+                            <asp:Label ID="lblIVNotes" runat="server" Text='<%#Eval("iv_contrast_notes") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Injection Rates">
+                        <ItemTemplate>
+                            <asp:Label ID="lblInjectionRate" runat="server" Text='<%#Eval("injection_rate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Injection Rates Notes">
+                        <ItemTemplate>
+                            <asp:Label ID="lblInjectionRateNotes" runat="server" Text='<%#Eval("injection_rate_notes") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Medication Link">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMedicationLink" runat="server" Text='<%#Eval("medication_url") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+                    </asp:GridView>
                 </div>
                  <strong>Editing Fields</strong><br />
                   <div class="table-responsive">
@@ -353,102 +378,155 @@
             </asp:View>
 
              <asp:View ID="View7" runat="server">
-              <!--  <asp:TextBox ID="TextBox7" runat="server" Text="Scan Tab" CssClass="form-control"></asp:TextBox> -->
+             
                   <strong>Scan Tab</strong>
                   <div class="table-responsive tableScroll">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Type</strong></td>
-                                    <td><strong>kV:</strong></td>
-                                    <td><strong>mA:</strong></td>
-                                    <td><strong>Rotation Time:</strong></td>
-                                    <td><strong>Scan Coverage:</strong></td>
-                                    <td><strong>Delay:</strong></td>
-                                    <td><strong>Direction:</strong></td>
-                                    <td><strong>Thickness:</strong></td>
-                                    <td><strong>Interval:</strong></td>
-                                    <td><strong>Rotation Length:</strong></td>
-                                    <td><strong>Detector Coverage:</strong></td>
-                                    <td><strong>Pitch:</strong></td>
-                                    <td><strong>Speed:</strong></td>
-                                    <td><strong>Tilt:</strong></td>
-                                    <td><strong>SFOV:</strong></td>
-                                    <td><strong>CARE DOSE 4D:</strong></td>
-                                    <td><strong>CASRE kV:</strong></td>
-                                    <td><strong>Dose Optimized Level:</strong></td>
-                                    <td><strong>Dual Energy:</strong></td>
-                                    <td><strong>Hi Res:</strong></td>
-                                    <td><strong>Cardiac:</strong></td>
-                                    <td><strong>Number of Scans:</strong></td>
-                                    <td><strong>Feed:</strong></td>
-                                    <td><strong>Ref QRM:</strong></td>
-                                    <td><strong>Ref kV:</strong></td>
-                                    <td><strong>Scan Description:</strong></td>
-                                    <td><strong>CTDI VoL:</strong></td>
-
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                </tr>
-                               
-                            </tbody>
-                        </table>
+                      <asp:GridView ID="gvScan" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbScanSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbScanSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfScanId" runat="server" Value='<%#Eval("scan_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Type">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanType" runat="server" Text='<%#Eval("scan_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="kV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScankV" runat="server" Text='<%#Eval("scan_kv") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="mA">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanMa" runat="server" Text='<%#Eval("scan_ma") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Rotation Time">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanRotateTime" runat="server" Text='<%#Eval("rotation_time") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Scan Coverage">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanCoverage" runat="server" Text='<%#Eval("scan_coverage") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Delay">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanDelay" runat="server" Text='<%#Eval("scan_delay") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Direction">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanDirection" runat="server" Text='<%#Eval("scan_direction") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Thickness">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanThickness" runat="server" Text='<%#Eval("scan_thickness") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Interval">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanInterval" runat="server" Text='<%#Eval("scan_interval") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Rotation Length">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanRotateLength" runat="server" Text='<%#Eval("rotation_length") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Detector Coverage">
+                        <ItemTemplate>
+                            <asp:Label ID="lblDetectorCoverage" runat="server" Text='<%#Eval("detector_coverage") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Pitch">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanPitch" runat="server" Text='<%#Eval("pitch") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Speed">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanSpeed" runat="server" Text='<%#Eval("speed") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Tilt">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanTilt" runat="server" Text='<%#Eval("tilt") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="SFOV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanSfov" runat="server" Text='<%#Eval("sfov") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="CARE DOSE 4D">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanCareDose4D" runat="server" Text='<%#Eval("care_dose4d") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="CARE kV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanCarekV" runat="server" Text='<%#Eval("care_kv") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Dose Optimized Level">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanDoseOptimizedLevel" runat="server" Text='<%#Eval("dose_optimized_level") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Dual Energy">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanDualEnergy" runat="server" Text='<%#Eval("dual_energy") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Hi Res">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanHiRes" runat="server" Text='<%#Eval("hi_res") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Cardiac">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanCardiac" runat="server" Text='<%#Eval("cardiac") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Number of Scans">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanNoOfScans" runat="server" Text='<%#Eval("number_of_scans") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Feed">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanFeed" runat="server" Text='<%#Eval("feed") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Ref QRM">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanQRM" runat="server" Text='<%#Eval("ref_qrm") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Ref kV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanRefKv" runat="server" Text='<%#Eval("ref_kv") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Scan Description">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanDescrip" runat="server" Text='<%#Eval("scan_description") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="CTDI VoL">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScanCTDI" runat="server" Text='<%#Eval("ctdivol") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+                    </asp:GridView>
+             
                 </div>
                 <br /> <strong>Editing Fields</strong><br /><br />
                   <div class="table-responsive">
@@ -540,238 +618,144 @@
             </asp:View>
 
              <asp:View ID="View8" runat="server">
-              <!--  <asp:TextBox ID="TextBox8" runat="server" Text="Recons" CssClass="form-control"></asp:TextBox> -->
                  <strong>Series Information</strong><br />
                   <div class="table-responsive tableScroll">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Description</strong></td>
-                                    <td><strong>DFOV</strong></td>
-                                    <td><strong>A/P Center</strong></td>
-                                    <td><strong>R/L Center</strong></td>
-                                    <td><strong>Thickness</strong></td>
-                                    <td><strong>Recon Interval</strong></td>
-                                    <td><strong>Algorithm</strong></td>
-                                    <td><strong>WW/WL</strong></td>
-                                    <td><strong>SAFIRE</strong></td>
-                                    <td><strong>SAFIRE Strength</strong></td>
-                                    <td><strong>FAST</strong></td>
-                                    <td><strong>Kernel</strong></td>
-                                    <td><strong>Slice Data</strong></td>
-                                    <td><strong>Type</strong></td>
-                                    <td><strong>Region</strong></td>
-                                    <td><strong>AXIS</strong></td>
-                                    <td><strong>3D Type</strong></td>
-                                    <td><strong>Image Order</strong></td>
-                                    <td><strong>ASIR</strong></td>
-                                    <td><strong>Destinations</strong></td>
-                                    <td><strong>Increments</strong></td>
-                                    <td><strong>FOV</strong></td>
-                                    <td><strong>Slice</strong></td>
-                                    <td><strong>Window</strong></td>
-                                    <td><strong>Nosie Suppression</strong></td>
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-
-                               
-                            </tbody>
-                        </table>
+                      <asp:GridView ID="gvReconSeries" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbReconSeriesSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbReconSeriesSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfReconSeriesId" runat="server" Value='<%#Eval("recon_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Description">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSDescription" runat="server" Text='<%#Eval("description") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="DFOV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSDfov" runat="server" Text='<%#Eval("dfov") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="A/P Center">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSAPCenter" runat="server" Text='<%#Eval("a_p_center") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="R/L Center">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSRLCenter" runat="server" Text='<%#Eval("r_l_center") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Thickness">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSThickness" runat="server" Text='<%#Eval("thickness") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Recon Interval">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSInterval" runat="server" Text='<%#Eval("recon_interval") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Algorithm">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSAlgorithm" runat="server" Text='<%#Eval("recon_algorithm") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="WW/WL">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSWWWL" runat="server" Text='<%#Eval("ww_wl") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="SAFIRE">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSSafire" runat="server" Text='<%#Eval("safire") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="SAFIRE Strength">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSSafireStrength" runat="server" Text='<%#Eval("safire_strength") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="FAST">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSFast" runat="server" Text='<%#Eval("recon_fast") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Kernel">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSKernel" runat="server" Text='<%#Eval("recon_kernel") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Slice Data">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSSliceData" runat="server" Text='<%#Eval("recon_slice_data") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Type">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSType" runat="server" Text='<%#Eval("recon_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Region">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSRegion" runat="server" Text='<%#Eval("recon_region") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="AXIS">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSAxis" runat="server" Text='<%#Eval("recon_axis") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="3D Type">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRS3DType" runat="server" Text='<%#Eval("threed_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Image Order">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSImgOrder" runat="server" Text='<%#Eval("image_order") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="ASIR">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSAsir" runat="server" Text='<%#Eval("asir") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Destinations">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSDestinations" runat="server" Text='<%#Eval("destinations") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Increments">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSIncrements" runat="server" Text='<%#Eval("increments") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="FOV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSFov" runat="server" Text='<%#Eval("fov") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Slice">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSSlice" runat="server" Text='<%#Eval("slice") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Window">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSWindow" runat="server" Text='<%#Eval("window") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Noise Suppression">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRSNoise" runat="server" Text='<%#Eval("noise_supression") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     
+                    </Columns>
+                    </asp:GridView>
                 </div>
              <br />    <strong>Editing Fields: </strong><br />
                  <div class="table-responsive">
@@ -860,99 +844,145 @@
             </asp:View>
 
              <asp:View ID="View9" runat="server">
-             <!--   <asp:TextBox ID="TextBox9" runat="server" Text="Recon Tab" CssClass="form-control"></asp:TextBox> -->
+           
                  <strong>Recon Tab</strong><br />
                    <div class="table-responsive tableScroll">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Description</strong></td>
-                                    <td><strong>DFOV</strong></td>
-                                    <td><strong>A/P Center</strong></td>
-                                    <td><strong>R/L Center</strong></td>
-                                    <td><strong>Thickness</strong></td>
-                                    <td><strong>Recon Interval</strong></td>
-                                    <td><strong>Algorithm</strong></td>
-                                    <td><strong>WW/WL</strong></td>
-                                    <td><strong>SAFIRE</strong></td>
-                                    <td><strong>SAFIRE Strength</strong></td>
-                                    <td><strong>FAST</strong></td>
-                                    <td><strong>Kernel</strong></td>
-                                    <td><strong>Slice Data</strong></td>
-                                    <td><strong>Type</strong></td>
-                                    <td><strong>Region</strong></td>
-                                    <td><strong>AXIS</strong></td>
-                                    <td><strong>3D Type</strong></td>
-                                    <td><strong>Image Order</strong></td>
-                                    <td><strong>ASIR</strong></td>
-                                    <td><strong>Destinations</strong></td>
-                                    <td><strong>Increments</strong></td>
-                                    <td><strong>FOV</strong></td>
-                                    <td><strong>Slice</strong></td>
-                                    <td><strong>Window</strong></td>
-                                    <td><strong>Nosie Suppression</strong></td>
-                                    
-
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                   
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    
-                                </tr>
-                               
-                            </tbody>
-                        </table>
+               <asp:GridView ID="gvReconTab" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbReconSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbReconSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfReconId" runat="server" Value='<%#Eval("recon_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Description">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTDescription" runat="server" Text='<%#Eval("description") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="DFOV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTDfov" runat="server" Text='<%#Eval("dfov") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="A/P Center">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTAPCenter" runat="server" Text='<%#Eval("a_p_center") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="R/L Center">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTRLCenter" runat="server" Text='<%#Eval("r_l_center") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Thickness">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTThickness" runat="server" Text='<%#Eval("thickness") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Recon Interval">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTInterval" runat="server" Text='<%#Eval("recon_interval") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Algorithm">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTAlgorithm" runat="server" Text='<%#Eval("recon_algorithm") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="WW/WL">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTWWWL" runat="server" Text='<%#Eval("ww_wl") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="SAFIRE">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTSafire" runat="server" Text='<%#Eval("safire") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="SAFIRE Strength">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTSafireStrength" runat="server" Text='<%#Eval("safire_strength") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="FAST">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTFast" runat="server" Text='<%#Eval("recon_fast") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Kernel">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTKernel" runat="server" Text='<%#Eval("recon_kernel") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Slice Data">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTSliceData" runat="server" Text='<%#Eval("recon_slice_data") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Type">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTType" runat="server" Text='<%#Eval("recon_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Region">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTRegion" runat="server" Text='<%#Eval("recon_region") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="AXIS">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTAxis" runat="server" Text='<%#Eval("recon_axis") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="3D Type">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRT3DType" runat="server" Text='<%#Eval("threed_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Image Order">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTImgOrder" runat="server" Text='<%#Eval("image_order") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="ASIR">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTAsir" runat="server" Text='<%#Eval("asir") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Destinations">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTDestinations" runat="server" Text='<%#Eval("destinations") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Increments">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTIncrements" runat="server" Text='<%#Eval("increments") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="FOV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTFov" runat="server" Text='<%#Eval("fov") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Slice">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTSlice" runat="server" Text='<%#Eval("slice") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Window">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTWindow" runat="server" Text='<%#Eval("window") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Noise Suppression">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRTNoise" runat="server" Text='<%#Eval("noise_supression") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     
+                    </Columns>
+                    </asp:GridView>
                 </div>
              <br />    <strong>Editing Fields: </strong><br />
                   <div class="table-responsive">
@@ -1041,41 +1071,55 @@
             </asp:View>
 
              <asp:View ID="View10" runat="server">
-              <!--  <asp:TextBox ID="TextBox10" runat="server" Text="Rotuine Tab" CssClass="form-control"></asp:TextBox>  -->
+             
                  <strong>Routine Tab</strong>
                  <div class="table-responsive">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Eff. mAs:</strong></td>                             
-                                    <td><strong>kV:</strong></td>            
-                                    <td><strong>Delay</strong></td>
-                                    <td><strong>Slice:</strong></td>
-                                    <td><strong>Dose Notification Value</strong></td>
-                                    <td><strong>X-CARE</strong></td>
-                                    <td><strong>4D Range(spiral Shuttle)</strong></td>
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>                     
-                                    <td>Value</td>                       
-                                    <td>Value</td>                   
-                                    <td>Value</td>
-                                     <td>Value</td>
-                                </tr>
-                                 <tr>   
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>                     
-                                    <td>Value</td>                       
-                                    <td>Value</td>                   
-                                    <td>Value</td>
-                                     <td>Value</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </div>
+                 <asp:GridView ID="gvRoutine" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbRoutineSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbRoutineSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfRoutineId" runat="server" Value='<%#Eval("routine_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Eff. mAs">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutEffMas" runat="server" Text='<%#Eval("eff_mas") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="kV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutKv" runat="server" Text='<%#Eval("kv") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Delay">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutDelay" runat="server" Text='<%#Eval("routine_delay") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Slice">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutSlice" runat="server" Text='<%#Eval("slice") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Dose Notification Value">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutDoseValue" runat="server" Text='<%#Eval("dose_notification_value") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="X - CARE">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutXCare" runat="server" Text='<%#Eval("x_care") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="4D Range(Spiral Shuttle)">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoutRange4D" runat="server" Text='<%#Eval("range_4d") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                        
+                    </Columns>
+                    </asp:GridView>
                  <strong>Editing Fields</strong><br />
                  <div class="table-responsive">
                <table class="table table-striped table-hover table-condensed small">
@@ -1106,58 +1150,74 @@
             </asp:View>
 
              <asp:View ID="View11" runat="server">
-            <!--    <asp:TextBox ID="TextBox11" runat="server" Text="Scout" CssClass="form-control"></asp:TextBox>  -->
+           
                  <strong>Scout</strong>
                   <div class="table-responsive tableScroll">
-               <table class="table table-striped table-hover table-condensed small">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Scan Type</strong></td>
-                                    <td><strong>kV:</strong></td>
-                                    <td><strong>mA:</strong></td>
-                                    <td><strong>Direction:</strong></td>
-                                    <td><strong>Start:</strong></td>
-                                    <td><strong>End:</strong></td>
-                                    <td><strong>Plane:</strong></td>
-                                    <td><strong>WW/WL:</strong></td>
-                                    <td><strong>Kernel:</strong></td>
-                                    <td><strong>Destination:</strong></td>
-                                    <td><strong>Scout Length:</strong></td>
-                                    
-
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    
-                                </tr>
-                                <tr>   
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    <td>Value</td>
-                                    <td>Value</td>    
-                                    <td>Value</td>                               
-                                    <td>Value</td>                      
-                                    
-                                </tr>
-                               
-                               
-                            </tbody>
-                        </table>
+              <asp:GridView ID="gvScout" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbScoutSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbScoutSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfScoutId" runat="server" Value='<%#Eval("scout_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Scan Type">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutType" runat="server" Text='<%#Eval("scan_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="kV">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutkv" runat="server" Text='<%#Eval("scout_kv") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="mA">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutmA" runat="server" Text='<%#Eval("scout_ma") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Direction">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutDirection" runat="server" Text='<%#Eval("scout_direction") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Start">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutStart" runat="server" Text='<%#Eval("scout_Start") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="End">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutEnd" runat="server" Text='<%#Eval("scout_end") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Plane">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutPlane" runat="server" Text='<%#Eval("scout_plane") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="WW/WL">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutWWWL" runat="server" Text='<%#Eval("scout_ww_wl") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Kernel">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutKernel" runat="server" Text='<%#Eval("scout_kernel") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                           <asp:TemplateField HeaderText="Destination">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutDestination" runat="server" Text='<%#Eval("scout_destination") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Scout Length">
+                        <ItemTemplate>
+                            <asp:Label ID="lblScoutLength" runat="server" Text='<%#Eval("scout_length") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+                    </asp:GridView>
                 </div>
                 <br /> <strong>Editing Fields</strong><br /><br />
                   <div class="table-responsive">
@@ -1169,28 +1229,34 @@
                                     <td><asp:TextBox ID="tbScoutType" runat="server" CssClass="form-control input-sm" Text="Scan Type Value"></asp:TextBox></td>
                                     <td><strong>Start</strong></td>
                                     <td><asp:TextBox ID="tbScoutStart" runat="server" CssClass="form-control input-sm" Text="Start Value"></asp:TextBox></td>
-                                    <td><strong>Destination</strong></td>
-                                    <td><asp:TextBox ID="tbScoutDestination" runat="server" CssClass="form-control input-sm" Text="Destination Value"></asp:TextBox></td>
+                                    <td><strong>Kernel</strong></td>
+                                    <td><asp:TextBox ID="tbScoutKernel" runat="server" CssClass="form-control input-sm" Text="Kernel Value"></asp:TextBox></td>
+                                    
                                 </tr>
                                 <tr>            
                                     <td><strong>kV</strong></td>
                                     <td><asp:TextBox ID="tbScoutkV" runat="server" CssClass="form-control input-sm" Text="kv Value"></asp:TextBox></td>
                                      <td><strong>End</strong></td>
                                     <td><asp:TextBox ID="tbScoutEnd" runat="server" CssClass="form-control input-sm" Text="end Value"></asp:TextBox></td>
-                                    <td><strong>Scout Length</strong></td>
-                                    <td><asp:TextBox ID="tbScoutLength" runat="server" CssClass="form-control input-sm" Text="Scout length Value"></asp:TextBox></td>
+                                    <td><strong>Destination</strong></td>
+                                    <td><asp:TextBox ID="tbScoutDestination" runat="server" CssClass="form-control input-sm" Text="Destination Value"></asp:TextBox></td>
+                                    
                                 </tr>
                                 <tr>
                                     <td><strong>mA</strong></td>
                                     <td><asp:TextBox ID="tbScoutmA" runat="server" CssClass="form-control input-sm" Text="ma Value"></asp:TextBox></td>
-                                    <td><strong>WW/Wl</strong></td>
-                                    <td><asp:TextBox ID="tbScoutWWWL" runat="server" CssClass="form-control input-sm" Text="ww/wwl Value"></asp:TextBox></td>
+                                    <td><strong>Plane</strong></td>
+                                    <td><asp:TextBox ID="tbScoutPlane" runat="server" CssClass="form-control input-sm" Text="Plane Value"></asp:TextBox></td>
+                                    <td><strong>Scout Length</strong></td>
+                                    <td><asp:TextBox ID="tbScoutLength" runat="server" CssClass="form-control input-sm" Text="Scout length Value"></asp:TextBox></td>
+                                    
                                 </tr>
                                 <tr>
                                     <td><strong>Direction</strong></td>
                                     <td><asp:TextBox ID="tbScoutDirection" runat="server" CssClass="form-control input-sm" Text="Direction Value"></asp:TextBox></td>
-                                    <td><strong>Kernel</strong></td>
-                                    <td><asp:TextBox ID="tbScoutKernel" runat="server" CssClass="form-control input-sm" Text="Kernel Value"></asp:TextBox></td>
+                                    <td><strong>WW/Wl</strong></td>
+                                    <td><asp:TextBox ID="tbScoutWWWL" runat="server" CssClass="form-control input-sm" Text="ww/wwl Value"></asp:TextBox></td>
+                                    
                                 </tr>
                             </tbody>
                         </table>
@@ -1198,46 +1264,64 @@
             </asp:View>
 
              <asp:View ID="View12" runat="server">
-             <!--   <asp:TextBox ID="TextBox12" runat="server" Text="Setup" CssClass="form-control"></asp:TextBox> -->
+            
             <strong>Setup</strong>
                   <div class="table-responsive tableScroll">
-                <table class="table table-condensed table-hover table-striped small">
-                           <tbody>
-                                <tr>
-                                    <td><strong>Patient Position</strong></td>                                
-                                    <td><strong>Breathing Technique</strong></td>                     
-                                    <td><strong>Zero Location</strong></td>
-                                    <td><strong>Orientation</strong></td>
-                                    <td><strong>Dose Notification Value</strong></td>
-                                    <td><strong>Dose Alert Value</strong></td>
-                                    <td><strong>Special Instructions</strong></td>
-                                    <td><strong>Protocol Overview</strong></td>
-                                    <td><strong>Topogram</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                </tr>
-                               <tr>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                    <td>Value</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <asp:GridView ID="gvSetup" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-hover small" BorderStyle="None"    >
+                     <Columns>
+                        <asp:templatefield HeaderText="Select">  
+                        <itemtemplate>
+                            <asp:checkbox ID="cbSetupSelect"  runat="server" AutoPostBack ="true" OnCheckedChanged="cbSetupSelect_CheckedChanged"></asp:checkbox>
+                            <asp:HiddenField ID="hfSetupId" runat="server" Value='<%#Eval("setup_id") %>' />
+                        </itemtemplate>
+                        </asp:templatefield>
+                    <asp:TemplateField HeaderText="Patient Position">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPosition" runat="server" Text='<%#Eval("position") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Breathing Technique">
+                        <ItemTemplate>
+                            <asp:Label ID="lblBreathing" runat="server" Text='<%#Eval("breathing") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Zero Location">
+                        <ItemTemplate>
+                            <asp:Label ID="lblZeroLocation" runat="server" Text='<%#Eval("zero_location") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Orientation">
+                        <ItemTemplate>
+                            <asp:Label ID="lblOrientation" runat="server" Text='<%#Eval("orientation") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Dose Notification Value">
+                        <ItemTemplate>
+                            <asp:Label ID="lblDoseNotifyvalue" runat="server" Text='<%#Eval("dose_notification_value") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Dose Alert Value">
+                        <ItemTemplate>
+                            <asp:Label ID="lblDoseAlertValue" runat="server" Text='<%#Eval("dose_alert_value") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Special Instructions">
+                        <ItemTemplate>
+                            <asp:Label ID="lblInstructions" runat="server" Text='<%#Eval("instructions") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Protocol Overview">
+                        <ItemTemplate>
+                            <asp:Label ID="lblProtocolOverview" runat="server" Text='<%#Eval("overview") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Topogram">
+                        <ItemTemplate>
+                            <asp:Label ID="lblTopogram" runat="server" Text='<%#Eval("topogram") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+                    </asp:GridView>
                 </div>
                   <strong>Editing Fields</strong><br />
                   <div class="table-responsive">
