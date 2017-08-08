@@ -1380,7 +1380,7 @@
 
             <asp:View ID="View13" runat="server">
              <!--   <asp:TextBox ID="TextBox13" runat="server" Text="Final Summary" CssClass="form-control"></asp:TextBox> -->
-                <h3>Summary:</h3>
+                <h3>Summary:<small>In case there appears a value which is not modified is just because spacing has got modified by Website otherwise values are same.</small></h3>
                 <asp:PlaceHolder ID="phSummary" runat="server"></asp:PlaceHolder>
                 <asp:PlaceHolder ID="phSeries" runat="server"></asp:PlaceHolder>
                 <div>

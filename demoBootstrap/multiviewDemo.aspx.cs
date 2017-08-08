@@ -19,6 +19,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             chklstProtocols.DataTextField = "protocol_name";
             chklstProtocols.DataValueField = "protocol_id";
             chklstProtocols.DataBind();
+            setSessionClear();
 
         }
 
@@ -94,12 +95,14 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Condition to be safe of errors for any failure case.
         lblSummary.Text = "";
         cbAgree.Checked = false;
-       generateSummary();
+        generateSummary();
     }
 
     // Generate Summary
     protected void generateSummary()
     {
+        //We verify for each tab if their session exists. This is required since session is created only if user visits tab and selects checkbox for the record.
+        // Billing Tab.
         if (Session["oldCharge"] != null && Session["chargeFlag"] != null)
         {
             string tempSeries = (string)Session["oldCharge"];
@@ -113,11 +116,80 @@ public partial class multiviewDemo : System.Web.UI.Page
             // This data structure stores information as Index of label in Series list, OldValue, NewValue.
             List<List<string>> modifiedSeries = getModifiedInfo(unwrapSeries, newSeries, flagSeries);
 
-            List<string> series_labels = new List<string> { "Charge" };
-
+            List<string> series_labels = new List<string> { "Charge" };         
             phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Billing"));
-
         }
+        //Bolus Tracking
+        if (Session["oldBolus"] != null && Session["flagBolus"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldBolus"];
+            List<string> newValues = getBolus();
+            bool[] flagBolus = (bool[])Session["flagBolus"];
+           
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagBolus);
+
+            List<string> series_labels = new List<string> { "mAs","kV","Delay", "Trigger (HU)" };
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Bolus Tracking"));
+        }
+        // Device Name
+        if (Session["oldDevice"] != null && Session["flagDevice"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldDevice"];
+            List<string> newValues = getDevice();
+            bool[] flagDevice = (bool[])Session["flagDevice"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagDevice);
+
+            List<string> series_labels = new List<string> { "Brand", "Scanner", "Device Number" };
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Device Name"));
+        }
+        //Media 
+        if(Session["oldMedia"] != null && Session["flagMedia"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldMedia"];
+            List<string> newValues = getMedia();
+            bool[] flagEdit = (bool[])Session["flagMedia"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> { "PDF Name", "PDF Version", "PDF URL" };
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Media"));
+        }
+        //Medication
+        if(Session["oldMedication"] != null && Session["flagMedication"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldMedication"];
+            List<string> newValues = getMedication();
+            bool[] flagEdit = (bool[])Session["flagMedication"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> { "Oral", "Oral instructions", "IV", "IV Instructions",
+                "Injection Rate", "Injection Rate Instructions", "Medication Link" };
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Media"));
+        
+        }
+        //Protocol Scan
+        if (Session["oldScan"] != null && Session["flagScan"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldScan"];
+            List<string> newValues = getProtocolScan();
+            bool[] flagEdit = (bool[])Session["flagScan"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> {"Type", "kV", "mA", "Rotation Time", "Scan Coverage",
+            "Delay","Direction","Thickness","Interval","Rotation length","Detector Coverage","Pitch",
+            "Speed","Tilt","SFOV","CARE DOSE 4D","CARE kV","Dose Optimized Level","Dual Energy","Hi Res","Cardiac","Number of Scans",
+            "Feed","Ref QRM","Ref kV","Scan Description","CTDI Vol"};
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Scan Tab"));
+        }
+        //Recons: Series information.
         if (Session["oldReconSeries"] != null && Session["flagReconSeries"] != null)
         {
             // Fetch old values from session.
@@ -135,6 +207,64 @@ public partial class multiviewDemo : System.Web.UI.Page
             "ASIR","Destinations","Increments","FoV","Slice","Window","Noise Suppression" };
 
             phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Series Information"));
+        }
+        //Recon Tab
+        if (Session["oldReconTab"] != null && Session["flagReconTab"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldReconTab"];
+            List<string> newValues = getReconTab();
+            bool[] flagEdit = (bool[])Session["flagReconTab"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> {"Description", "DFOV", "A/P Center", "R/L Center", "Thickness",
+            "Recon Interval","Algorithm","WW/WL","SAFIRE","SAFIRE Strength","FAST","KERNEL","Slice Data","Type","Region","Axis","3D Type","Image order",
+            "ASIR","Destinations","Increments","FoV","Slice","Window","Noise Suppression"};
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Recon Tab"));
+
+        }
+        //Routine Tab
+        if (Session["oldRoutine"] != null  &&  Session["FlagRoutine"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldRoutine"];
+            List<string> newValues = getRoutine();
+            bool[] flagEdit = (bool[])Session["FlagRoutine"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> {"Eff.mAs", "kV", "Delay", "Slice", "Dose Notification Value",
+            "X CARE","RANGE 4D"};
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Rotuine Tab"));
+        }
+        //Scout
+        if (Session["oldScout"] != null && Session["flagScout"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldScout"];
+            List<string> newValues = getScout();
+            bool[] flagEdit = (bool[])Session["flagScout"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> {"Scan Type", "kV", "mA", "Direction", "Start",
+            "End","Plane","WW/WL","Kernel","Destination","Scout Length"};
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Scout"));
+        }
+        //Setup
+        if (Session["oldSetup"] != null && Session["flagSetup"] != null)
+        {
+            List<string> unwrapOldValues = (List<string>)Session["oldSetup"];
+            List<string> newValues = getSetup();
+            bool[] flagEdit = (bool[])Session["flagSetup"];
+
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagEdit);
+
+            List<string> series_labels = new List<string> {"Patient Position", "Breathing Technique", "Zero Location", "Orientation", "Dose Notificaiton Value",
+            "Dose Alert Value","Special Instructions","Protocol Overview","Topogram"};
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Setup"));
         }
     }
 
@@ -166,6 +296,7 @@ public partial class multiviewDemo : System.Web.UI.Page
         table.ID = "tblFinal" + section_name;
         table.CssClass = "table table-striped table-hover table-condensed small";
 
+        
         // Displaying First row in Summary Table.
         TableRow rowTitle = new TableRow(); 
         
@@ -265,6 +396,7 @@ public partial class multiviewDemo : System.Web.UI.Page
     // This functions moves view from Sleected protocols to billing. Binds data to billing gridview based on session stored list of protocol ids.
     protected void btnSelectProtocol_Click(object sender, EventArgs e)
     {
+        setSessionClear();
         MultiViewMain.ActiveViewIndex++;
         gvBilling.DataSource = EditingData.getBilling((List<string>)Session["PId"]);
         gvBilling.DataBind();
@@ -292,7 +424,35 @@ public partial class multiviewDemo : System.Web.UI.Page
 
     }
 
-   //Handles Billing
+    // This function ensures even if user opens session in other tab it will clear and intialize new sessions.
+    protected void setSessionClear()
+    {
+        Session["oldCharge"] = null;
+        Session["chargeFlag"] = null;
+        Session["oldBolus"] = null;
+        Session["flagBolus"] = null;
+        Session["oldDevice"] = null;
+        Session["flagDevice"] = null;
+        Session["oldMedia"] = null;
+        Session["flagMedia"] = null;
+        Session["oldMedication"] = null;
+        Session["flagMedication"] = null;
+        Session["oldScan"] = null;
+        Session["flagScan"] = null;
+        Session["oldReconSeries"] = null;
+        Session["flagReconSeries"] = null;
+        Session["oldReconTab"] = null;
+        Session["flagReconTab"] = null;
+        Session["oldRoutine"] = null;
+        Session["FlagRoutine"] = null;
+        Session["oldScout"] = null;
+        Session["flagScout"] = null;
+        Session["oldSetup"] = null;
+        Session["flagSetup"] = null;
+
+    }
+
+    //Handles Billing
     protected void cbSelect_CheckedChanged(object sender, EventArgs e)
     {
         //Stores list of billing ids checked.
@@ -302,6 +462,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         //Flag to decide if textbox should be enabled.
         bool[] canEdit = new bool[1];
         List<string> editBillValues = getNoneList(1);
+        Session["oldCharge"] = null;
+        Session["chargeFlag"] = null;
 
         setBillingTB(canEdit, editBillValues);
 
@@ -315,6 +477,8 @@ public partial class multiviewDemo : System.Web.UI.Page
                 chargerows.Add((gvrow.FindControl("lblCharge") as Label).Text);
             }
         }
+
+        Session["billId"] = billid;
 
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (billid.Count == 1)
@@ -377,7 +541,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editBolus = new bool[4];
         List<string> editBolusValues = getNoneList(4);
-       
+        Session["oldBolus"] = null;
+        Session["flagBolus"] = null;
 
         //Disable all textboxes for editing and clear text.
         setBolusTB(editBolus, editBolusValues);
@@ -398,6 +563,8 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["bolusId"] = bolusid;
+
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (bolusid.Count == 1)
         {
@@ -405,6 +572,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editBolus = setBoolArr(editBolus, true);
             // Store intial value in session to compare at the end.
             Session["oldBolus"] = bolusrows[0];
+            Session["flagBolus"] = editBolus;
             // Enable textobx editing and set intial value of reocrds.
             setBolusTB(editBolus, bolusrows[0]);
 
@@ -438,6 +606,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setBolusTB(editBolus, editBolusValues);
             Session["oldBolus"] = editBolusValues;
+            Session["flagBolus"] = editBolus;
 
 
         }
@@ -458,6 +627,17 @@ public partial class multiviewDemo : System.Web.UI.Page
 
     }
 
+    protected List<string> getBolus()
+    {
+        List<string> result = new List<string>();
+        result.Add(tbBTMas.Text);
+        result.Add(tbBTKv.Text);
+        result.Add(tbBTDelay.Text);
+        result.Add(tbBTTrigger.Text);
+
+        return result;
+    }
+
     // Handles Device Tracking tab.
     protected void cbDeviceIdSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -468,7 +648,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editDevice = new bool[3];
         List<string> editValues = getNoneList(3);
-        
+        Session["oldDevice"] = null;
+        Session["flagDevice"] = null;
 
         //Disable all textboxes for editing and clear text.
         setDeviceTB(editDevice, editValues);
@@ -488,6 +669,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["deviceId"] = deviceid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (deviceid.Count == 1)
         {
@@ -495,6 +677,7 @@ public partial class multiviewDemo : System.Web.UI.Page
            editDevice = setBoolArr(editDevice, true);
             // Store intial value in session to compare at the end.
             Session["oldDevice"] = devicerows[0];
+            Session["flagDevice"] = editDevice;
             // Enable textobx editing and set intial value of reocrds.
             setDeviceTB(editDevice, devicerows[0]);
             
@@ -528,6 +711,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setDeviceTB(editDevice, editValues);
             Session["oldDevice"] = editValues;
+            Session["flagDevice"] = editDevice;
 
 
         }
@@ -547,6 +731,15 @@ public partial class multiviewDemo : System.Web.UI.Page
 
     }
 
+    protected List<string> getDevice()
+    {
+        List<string> result = new List<string>();
+        result.Add(tbDVBrand.Text);
+        result.Add(tbDVScanner.Text);
+        result.Add(tbDVNumber.Text);
+        return result;
+    }
+
     // Handles Media tab.
     protected void cbMediaSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -557,7 +750,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editMedia = new bool[3];
         List<string> editMediaValues = getNoneList(3);
-        
+        Session["oldMedia"] = null;
+        Session["flagMedia"] = null;
 
         //Disable all textboxes for editing and clear text.
         setMediaTB(editMedia, editMediaValues);
@@ -577,6 +771,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["mediaId"] = mediaid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (mediaid.Count == 1)
         {
@@ -584,6 +779,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editMedia = setBoolArr(editMedia, true);
             // Store intial value in session to compare at the end.
             Session["oldMedia"] = mediarows[0];
+            Session["flagMedia"] = editMedia;
             // Enable textobx editing and set intial value of reocrds.
             setMediaTB(editMedia, mediarows[0]);
 
@@ -617,6 +813,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setMediaTB(editMedia, editMediaValues);
             Session["oldMedia"] = editMediaValues;
+            Session["flagMedia"] = editMedia;
 
 
         }
@@ -624,7 +821,6 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Maintiain multiview.
         MultiViewMain.ActiveViewIndex = 4;
     }
-
     protected void setMediaTB(bool[] editMedia, List<string> editMediaValues)
     {
         tbPDFName.Enabled = editMedia[0];
@@ -635,7 +831,14 @@ public partial class multiviewDemo : System.Web.UI.Page
         tbPDFUrl.Text = editMediaValues[2];
 
     }
-
+    protected List<string> getMedia()
+    {
+        List<string> result = new List<string>();
+        result.Add(tbPDFName.Text);
+        result.Add(tbPDFVer.Text);
+        result.Add(tbPDFUrl.Text);
+        return result;
+    }
     // Handles Medication tab.
     protected void cbMedicationSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -646,7 +849,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editMedication = new bool[7];
         List<string> editMedicationValues = getNoneList(7);
-        
+        Session["oldMedication"] = null;
+        Session["flagMedication"] = null;
 
         //Disable all textboxes for editing and clear text.
         setMedicationTB(editMedication, editMedicationValues);
@@ -670,6 +874,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["medicationId"] = medicationid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (medicationid.Count == 1)
         {
@@ -677,6 +882,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editMedication = setBoolArr(editMedication, true);
             // Store intial value in session to compare at the end.
             Session["oldMedication"] = medicationrows[0];
+            Session["flagMedication"] = editMedication;
             // Enable textobx editing and set intial value of reocrds.
             setMedicationTB(editMedication, medicationrows[0]);
 
@@ -710,7 +916,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setMedicationTB(editMedication, editMedicationValues);
             Session["oldMedication"] = editMedicationValues;
-
+            Session["flagMedication"] = editMedication;
 
         }
 
@@ -735,7 +941,19 @@ public partial class multiviewDemo : System.Web.UI.Page
         tbMLink.Text = editMedicationValues[6];
 
     }
+    protected List<string> getMedication()
+    {
+        List<string> result = new List<string>();
+        result.Add(tbMOralVal.Text);
+        result.Add(taMOralIns.Value);
+        result.Add(tbMIVVal.Text);
+        result.Add(tbMIVIns.Value);
+        result.Add(tbMInj.Text);
+        result.Add(taMInj.Value);
+        result.Add(tbMLink.Text);
 
+        return result;
+    }
     // Handles protocol scan tab.
     protected void cbScanSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -746,7 +964,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editScan = new bool[27];
         List<string> editScanValues = getNoneList(27);
-
+        Session["oldScan"] = null;
+        Session["flagScan"] = null;
 
         //Disable all textboxes for editing and clear text.
         setScanTB(editScan, editScanValues);
@@ -790,6 +1009,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["scanId"] = scanid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (scanid.Count == 1)
         {
@@ -797,6 +1017,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editScan = setBoolArr(editScan, true);
             // Store intial value in session to compare at the end.
             Session["oldScan"] = scanrows[0];
+            Session["flagScan"] = editScan;
             // Enable textobx editing and set intial value of reocrds.
             setScanTB(editScan, scanrows[0]);
 
@@ -833,7 +1054,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setScanTB(editScan, editScanValues);
             Session["oldScan"] = editScanValues;
-
+            Session["flagScan"] = editScan;
 
         }
 
@@ -900,7 +1121,40 @@ public partial class multiviewDemo : System.Web.UI.Page
        
 
     }
+    protected List<string> getProtocolScan()
+    {
+        List<string> result = new List<string>();
+        result.Add(tbScanType.Text);
+        result.Add(tbScankV.Text);
+        result.Add(tbScanMa.Text);
+        result.Add(tbScanRotationTime.Text);
+        result.Add(tbScanCoverage.Text);
+        result.Add(tbScanDelay.Text);
+        result.Add(tbScanDirection.Text);
+        result.Add(tbScanThickness.Text);
+        result.Add(tbScanInterval.Text);
+        result.Add(tbScanRotationLength.Text);
+        result.Add(tbScanDetectorCoverage.Text);
+        result.Add(tbScanPitch.Text);
+        result.Add(tbScanSpeed.Text);
+        result.Add(tbScanTilt.Text);
+        result.Add(tbScanSfov.Text);
+        result.Add(tbScanCareDoes4D.Text);
+        result.Add(tbScanCarekV.Text);
+        result.Add(tbScanDoesOptimizedLevel.Text);
+        result.Add(tbScanDualEnergy.Text);
+        result.Add(tbScanHiRes.Text);
+        result.Add(tbScanCardiac.Text);
+        result.Add(tbScanNoOfScan.Text);
+        result.Add(tbScanFeed.Text);
+        result.Add(tbScanRefQrm.Text);
+        result.Add(tbScanRefKv.Text);
+        result.Add(tbScanDesciption.Text);
+        result.Add(tbScanCTDIVol.Text);
 
+
+        return result;
+    }
     // Handles Recon Series.
     protected void cbReconSeriesSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -911,7 +1165,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editReconSeries = new bool[25];
         List<string> editReconSeriesValues = getNoneList(25);
-
+        Session["oldReconSeries"] = null;
+        Session["flagReconSeries"] = null;
 
         //Disable all textboxes for editing and clear text.
         setReconSeriesTB(editReconSeries, editReconSeriesValues);
@@ -954,6 +1209,8 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        //Storing ids selected for editing.
+        Session["reconSeriesId"] = reconseriesid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (reconseriesid.Count == 1)
         {
@@ -1060,7 +1317,6 @@ public partial class multiviewDemo : System.Web.UI.Page
         tbSIRNosieSuppression.Text = editReconSeriesValues[24];
 
     }
-
     protected List<string> getReconSeries()
     {
    
@@ -1090,9 +1346,7 @@ public partial class multiviewDemo : System.Web.UI.Page
         result.Add(tbSIRSlice.Text);
         result.Add(tbSIRWindow.Text);
         result.Add(tbSIRNosieSuppression.Text);
-
         return result;
-
     }
     //Handles Recon tab button.
     protected void cbReconSelect_CheckedChanged(object sender, EventArgs e)
@@ -1102,9 +1356,10 @@ public partial class multiviewDemo : System.Web.UI.Page
         //Store records information for selected device id.
         List<List<string>> recontabrows = new List<List<string>>();
         // Boolean to enable or disable textboxes.Default they are false.
-        bool[] editReconTab = new bool[27];
-        List<string> editReconTabValues = getNoneList(27);
-
+        bool[] editReconTab = new bool[25];
+        List<string> editReconTabValues = getNoneList(25);
+        Session["oldReconTab"] = null;
+        Session["flagReconTab"] = null;
 
         //Disable all textboxes for editing and clear text.
         setReconTabTB(editReconTab, editReconTabValues);
@@ -1147,6 +1402,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["recontabId"] = recontabid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (recontabid.Count == 1)
         {
@@ -1154,6 +1410,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editReconTab = setBoolArr(editReconTab, true);
             // Store intial value in session to compare at the end.
             Session["oldReconTab"] = recontabrows[0];
+            Session["flagReconTab"] = editReconTab;
             // Enable textobx editing and set intial value of reocrds.
             setReconTabTB(editReconTab, recontabrows[0]);
 
@@ -1190,6 +1447,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setReconTabTB(editReconTab, editReconTabValues);
             Session["oldReconTab"] = editReconTabValues;
+            Session["flagReconTab"] = editReconTab;
 
 
         }
@@ -1253,6 +1511,39 @@ public partial class multiviewDemo : System.Web.UI.Page
 
 
     }
+    protected List<string> getReconTab()
+    {
+
+        List<string> result = new List<string>();
+        result.Add(tbRTDescrip.Text);
+        result.Add(tbRTDfov.Text);
+        result.Add(tbRTAPCenter.Text);
+        result.Add(tbRTRLCenter.Text);
+        result.Add(tbRTThickness.Text);
+        result.Add(tbRTReconInterval.Text);
+        result.Add(tbRTAlgorithm.Text);
+        result.Add(tbRTWL.Text);
+        result.Add(tbRTSafire.Text);
+        result.Add(tbRTSAFStrength.Text);
+        result.Add(tbRTFast.Text);
+        result.Add(tbRTKernel.Text);
+        result.Add(tbRTSliceData.Text);
+        result.Add(tbRTType.Text);
+        result.Add(tbRTRegion.Text);
+        result.Add(tbRTAxis.Text);
+        result.Add(tbRT3DType.Text);
+        result.Add(tbRTImgOrdr.Text);
+        result.Add(tbRTAsir.Text);
+        result.Add(tbRTDestination.Text);
+        result.Add(tbRTIncrements.Text);
+        result.Add(tbRTFov.Text);
+        result.Add(tbRTSlice.Text);
+        result.Add(tbRTWindow.Text);
+        result.Add(tbRTNosieSuppression.Text);
+
+        return result;
+
+    }
     //Handles Routine Tab.
     protected void cbRoutineSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -1264,7 +1555,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         bool[] editRoutine = new bool[7];
         List<string> editRoutineValues = getNoneList(7);
 
-
+        Session["oldRoutine"] = null;
+        Session["FlagRoutine"] = null;
         //Disable all textboxes for editing and clear text.
         setRoutineTB(editRoutine, editRoutineValues);
 
@@ -1288,6 +1580,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["routineId"] = routineid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (routineid.Count == 1)
         {
@@ -1295,6 +1588,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editRoutine = setBoolArr(editRoutine, true);
             // Store intial value in session to compare at the end.
             Session["oldRoutine"] = routinerows[0];
+            Session["FlagRoutine"] = editRoutine;
             // Enable textobx editing and set intial value of reocrds.
             setRoutineTB(editRoutine, routinerows[0]);
 
@@ -1328,7 +1622,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setRoutineTB(editRoutine, editRoutineValues);
             Session["oldRoutine"] = editRoutineValues;
-
+            Session["FlagRoutine"] = editRoutine;
 
         }
 
@@ -1354,7 +1648,20 @@ public partial class multiviewDemo : System.Web.UI.Page
        
 
     }
-  
+    protected List<string> getRoutine()
+    {
+
+        List<string> result = new List<string>();
+        result.Add(tbRoutineEffMas.Text);
+        result.Add(tbRoutinekV.Text);
+        result.Add(tbRotuineDelay.Text);
+        result.Add(tbRoutineSlice.Text);
+        result.Add(tbRoutineDoseNotif.Text);
+        result.Add(tbRoutineXCare.Text);
+        result.Add(tbRoutine4DRange.Text);
+        return result;
+
+    }
     // Handles Scout tab.
     protected void cbScoutSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -1365,7 +1672,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editScout = new bool[11];
         List<string> editScoutValues = getNoneList(11);
-
+        Session["oldScout"] = null;
+        Session["flagScout"] = null;
 
         //Disable all textboxes for editing and clear text.
         setScoutTB(editScout, editScoutValues);
@@ -1394,6 +1702,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["scoutId"] = scoutid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (scoutid.Count == 1)
         {
@@ -1401,6 +1710,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editScout = setBoolArr(editScout, true);
             // Store intial value in session to compare at the end.
             Session["oldScout"] = scoutrows[0];
+            Session["flagScout"] = editScout;
             // Enable textobx editing and set intial value of reocrds.
             setScoutTB(editScout, scoutrows[0]);
 
@@ -1432,9 +1742,9 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
 
             // Setting editing values. session state.
-            setSetupTB(editScout, editScoutValues);
+            setScoutTB(editScout, editScoutValues);
             Session["oldScout"] = editScoutValues;
-
+            Session["flagScout"] = editScout;
 
         }
 
@@ -1467,6 +1777,24 @@ public partial class multiviewDemo : System.Web.UI.Page
         tbScoutLength.Text = editValues[10];
 
     }
+    protected List<string> getScout()
+    {
+
+        List<string> result = new List<string>();
+        result.Add(tbScoutType.Text);
+        result.Add(tbScoutkV.Text);
+        result.Add(tbScoutmA.Text);
+        result.Add(tbScoutDirection.Text);
+        result.Add(tbScoutStart.Text);
+        result.Add(tbScoutEnd.Text);
+        result.Add(tbScoutPlane.Text);
+        result.Add(tbScoutWWWL.Text);
+        result.Add(tbScoutKernel.Text);
+        result.Add(tbScoutDestination.Text);
+        result.Add(tbScoutLength.Text);
+        return result;
+
+    }
     //Handles Setup tab.
     protected void cbSetupSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -1477,7 +1805,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         // Boolean to enable or disable textboxes.Default they are false.
         bool[] editSetup = new bool[9];
         List<string> editSetupValues = getNoneList(9);
-
+        Session["oldSetup"] = null;
+        Session["flagSetup"] = null;
 
         //Disable all textboxes for editing and clear text.
         setSetupTB(editSetup, editSetupValues);
@@ -1504,6 +1833,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             }
         }
 
+        Session["setupId"] = setupid;
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (setupid.Count == 1)
         {
@@ -1511,6 +1841,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editSetup = setBoolArr(editSetup, true);
             // Store intial value in session to compare at the end.
             Session["oldSetup"] = setuprows[0];
+            Session["flagSetup"] = editSetup;
             // Enable textobx editing and set intial value of reocrds.
             setSetupTB(editSetup, setuprows[0]);
 
@@ -1544,7 +1875,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setSetupTB(editSetup, editSetupValues);
             Session["oldSetup"] = editSetupValues;
-
+            Session["flagSetup"] = editSetup;
 
         }
 
@@ -1573,6 +1904,23 @@ public partial class multiviewDemo : System.Web.UI.Page
         tbSetupTopogram.Text = editSetupValues[8];
 
     }
+    protected List<string> getSetup()
+    {
+
+        List<string> result = new List<string>();
+        result.Add(tbSetupPosition.Text);
+        result.Add(tbSetupBreating.Text);
+        result.Add(tbSetupZeroLoc.Text);
+        result.Add(tbSetupOrientation.Text);
+        result.Add(tbSetupDoseNotifVal.Text);
+        result.Add(tbSetupDoseAlertVal.Text);
+        result.Add(taSetupIns.Value);
+        result.Add(taSetupOverview.Value);
+        result.Add(tbSetupTopogram.Text);
+        
+        return result;
+
+    }
     // This function sets entire boolean array to either true or false.Used across all tabs.
     protected bool[] setBoolArr(bool[] listFlags, bool value)
     {
@@ -1583,7 +1931,6 @@ public partial class multiviewDemo : System.Web.UI.Page
 
         return listFlags;
     }
-
     protected List<String> getNoneList(int i)
     {
         List<string> result = new List<string>();
@@ -1593,9 +1940,7 @@ public partial class multiviewDemo : System.Web.UI.Page
         }
 
         return result;
-    }
-
-   
+    }  
     //This button updates summary in database. Not implemented fully yet. Located in finish tab.
     protected void btnComplete_Click(object sender, EventArgs e)
     {
@@ -1614,7 +1959,7 @@ public partial class multiviewDemo : System.Web.UI.Page
         }
     }
 
-
+   
 
 
 
