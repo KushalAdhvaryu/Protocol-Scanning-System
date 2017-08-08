@@ -113,7 +113,7 @@
                         </tbody>    
                     </table>
                 </div> 
-                 <asp:Button ID="btnFinish" runat="server" Text="Finish"  CssClass="btn btn-primary" OnClick="btnFinish_Click"  />
+                
             </asp:View>
 
              <asp:View ID="View3" runat="server">
@@ -1382,6 +1382,7 @@
              <!--   <asp:TextBox ID="TextBox13" runat="server" Text="Final Summary" CssClass="form-control"></asp:TextBox> -->
                 <h3>Summary:</h3>
                 <asp:PlaceHolder ID="phSummary" runat="server"></asp:PlaceHolder>
+                <asp:PlaceHolder ID="phSeries" runat="server"></asp:PlaceHolder>
                 <div>
                     <asp:CheckBox ID="cbAgree" runat="server" Text='I agree to above changes.' />
                    

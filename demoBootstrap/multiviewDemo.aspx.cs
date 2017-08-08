@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class multiviewDemo : System.Web.UI.Page
 {
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         MultiViewMain.ActiveViewIndex = 0;
@@ -34,7 +34,7 @@ public partial class multiviewDemo : System.Web.UI.Page
     protected void btnBill_Click(object sender, EventArgs e)
     {
         MultiViewMain.ActiveViewIndex = 1;
-        
+
     }
 
     protected void btnBolTrac_Click(object sender, EventArgs e)
@@ -91,8 +91,152 @@ public partial class multiviewDemo : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         MultiViewMain.ActiveViewIndex = 12;
+        // Condition to be safe of errors for any failure case.
+        lblSummary.Text = "";
+        cbAgree.Checked = false;
+       generateSummary();
     }
 
+    // Generate Summary
+    protected void generateSummary()
+    {
+        if (Session["oldCharge"] != null && Session["chargeFlag"] != null)
+        {
+            string tempSeries = (string)Session["oldCharge"];
+            List<string> unwrapSeries = new List<string>();
+            unwrapSeries.Add(tempSeries);
+            // Fetch values from Textboxes at current state.
+            List<string> newSeries = getBilling();
+            // Gives indication that only ith index textbox are enabled. We check only them.
+            bool[] flagSeries = (bool[])Session["chargeFlag"];
+
+            // This data structure stores information as Index of label in Series list, OldValue, NewValue.
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapSeries, newSeries, flagSeries);
+
+            List<string> series_labels = new List<string> { "Charge" };
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Billing"));
+
+        }
+        if (Session["oldReconSeries"] != null && Session["flagReconSeries"] != null)
+        {
+            // Fetch old values from session.
+            List<string> unwrapSeries = (List<string>)Session["oldReconSeries"];
+            // Fetch values from Textboxes at current state.
+            List<string> newSeries = getReconSeries();
+            // Gives indication that only ith index textbox are enabled. We check only them.
+            bool[] flagSeries = (bool[])Session["flagReconSeries"];
+
+            // This data structure stores information as Index of label in Series list, OldValue, NewValue.
+            List<List<string>> modifiedSeries = getModifiedInfo(unwrapSeries, newSeries, flagSeries);
+
+            List<string> series_labels = new List<string> { "Description", "DFOV", "A/P Center", "R/L Center", "Thickness",
+            "Interval","Algorithm","WW/WL","SAFIRE","SAFIRE Strength","FAST","KERNEL","Slice Data","Type","Region","Axis","3D Type","Image order",
+            "ASIR","Destinations","Increments","FoV","Slice","Window","Noise Suppression" };
+
+            phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Series Information"));
+        }
+    }
+
+    // This function will compare two list return List of List of type String where Each List of string is tuple with 0: index, 1: old value, 2: new value.
+    protected List<List<string>> getModifiedInfo(List<string> oldValues, List<string> newValues, bool[] flags)
+    {
+        List<List<string>> result = new List<List<string>>();
+        for(int i= 0; i< flags.Length; i++)
+        {
+            if (flags[i])
+            {
+                if(oldValues[i] != newValues[i])
+                {
+                    List<string> tuple = new List<string>();
+                    tuple.Add(i.ToString());
+                    tuple.Add(oldValues[i]);
+                    tuple.Add(newValues[i]);
+                    result.Add(tuple);
+                }
+            }
+        }
+        return result;
+    }
+
+    //This function will generate a summary for list of edited values.
+    protected Table populateTable(List<List<string>> Values, List<string> lables, string section_name)
+    {
+        Table table = new Table();
+        table.ID = "tblFinal" + section_name;
+        table.CssClass = "table table-striped table-hover table-condensed small";
+
+        // Displaying First row in Summary Table.
+        TableRow rowTitle = new TableRow(); 
+        
+        TableCell cellTitle = new TableCell();
+        Label lb = new Label();
+        lb.ID = "lbltitle_" + section_name;
+        lb.Text = section_name;
+        lb.Font.Bold = true;
+        cellTitle.Controls.Add(lb);
+        rowTitle.Cells.Add(cellTitle);
+
+        TableCell cellOldTitle = new TableCell();
+        Label lbOldTitle = new Label();
+        lbOldTitle.ID = "lblOldtitle_" + section_name;
+        lbOldTitle.Text = "Old Value";
+        lbOldTitle.Font.Bold = true;
+        cellOldTitle.Controls.Add(lbOldTitle);
+        rowTitle.Cells.Add(cellOldTitle);
+
+        TableCell cellNewTitle = new TableCell();
+        Label lbNewTitle = new Label();
+        lbNewTitle.ID = "lblNewtitle_" + section_name;
+        lbNewTitle.Text = "New Value";
+        lbNewTitle.Font.Bold = true;
+        cellNewTitle.Controls.Add(lbNewTitle);
+        rowTitle.Cells.Add(cellNewTitle);
+
+        table.Rows.Add(rowTitle);
+
+
+
+        // Generating Rest of table as Label, OldValue, New Value.
+        for(int i =0; i< Values.Count; i++)
+        {
+            List<string> tuple = Values[i];
+            int idx = Convert.ToInt32(tuple[0]);
+            TableRow row = new TableRow();
+
+            //Creating cell for label. 
+            TableCell cellLabel = new TableCell();
+            Label lbLabel = new Label();
+            lbLabel.ID = "lblLabel_" + lables[idx];
+            lbLabel.Text = lables[idx];
+            lbLabel.Font.Bold = true;
+            cellLabel.Controls.Add(lbLabel);
+            row.Cells.Add(cellLabel);
+
+            //Creating cell for old Value. 
+            TableCell cellOld = new TableCell();
+            Label lbOld = new Label();
+            lbOld.ID = "lblOld_" + lables[idx];
+            lbOld.Text = tuple[1];
+            cellOld.Controls.Add(lbOld);
+            row.Cells.Add(cellOld);
+
+            //Creating cell for new Value. 
+            TableCell cellNew = new TableCell();
+            Label lbNew = new Label();
+            lbNew.ID = "lblNew_" + lables[idx];
+            lbNew.Text = tuple[2];
+            cellNew.Controls.Add(lbNew);
+            row.Cells.Add(cellNew);
+
+            table.Rows.Add(row);
+
+
+        }
+
+        return table;
+    }
+   
     // This function captures values selected by user for editing.
     protected void chklstProtocols_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -148,18 +292,18 @@ public partial class multiviewDemo : System.Web.UI.Page
 
     }
 
-    // This function captures check box marking for records in billing tab.
-    //Stores information in form of list and makes decision to enable or diable editing text box.
+   //Handles Billing
     protected void cbSelect_CheckedChanged(object sender, EventArgs e)
     {
         //Stores list of billing ids checked.
         List<string> billid = new List<string>();
         //Stores charge values for selected billing ids.
-        List<string> charge = new List<string>();
+        List<string> chargerows = new List<string>();
         //Flag to decide if textbox should be enabled.
-        bool canEdit = true;
-        tbBLCharge.Enabled = false;
-        tbBLCharge.Text = "";
+        bool[] canEdit = new bool[1];
+        List<string> editBillValues = getNoneList(1);
+
+        setBillingTB(canEdit, editBillValues);
 
         //Storing data in lists of ids and other columsn against the user selected records.
         foreach (GridViewRow gvrow in gvBilling.Rows)
@@ -168,145 +312,61 @@ public partial class multiviewDemo : System.Web.UI.Page
             {
                 var val = (HiddenField)gvrow.FindControl("hfBillId");
                 billid.Add(val.Value);
-                charge.Add((gvrow.FindControl("lblCharge") as Label).Text);
+                chargerows.Add((gvrow.FindControl("lblCharge") as Label).Text);
             }
         }
 
         // If user has selected only 1 record enable editing.Store value in oldCharge to keep track.
         if (billid.Count == 1)
         {
-            tbBLCharge.Text = charge[0];
-            Session["oldCharge"] = tbBLCharge.Text;
-            tbBLCharge.Enabled = true;
+            canEdit = setBoolArr(canEdit, true);
+            Session["oldCharge"] = chargerows[0];
+            Session["chargeFlag"] = canEdit;
+            setBillingTB(canEdit, chargerows);
         }
 
         //If more than 1 rows are marked.
         if (billid.Count > 1)
         {
-            string basechrg = charge[0]; // Select first value of column and compare its value against rest of values of same column.
+            string basechrg = chargerows[0]; // Select first value of column and compare its value against rest of values of same column.
+            canEdit[0] = true;
+            editBillValues[0] = basechrg;
             for (int i = 1; i < billid.Count; i++) // Starting from 1 since we have already choosen record at 0th index as base for comparision.
             {
-                if (basechrg != charge[i])
+                if (basechrg != chargerows[i])
                 { // If any of column value amongst sleected does not match stop and disable editing.
-                    canEdit = false;
-                    tbBLCharge.Text = "";
-                    Session["oldCharge"] = "";
-                    tbBLCharge.Enabled = false;
+                    canEdit[0] = false;
+                    editBillValues[0] = "";
                     break;
                 }
             }
-            // if at end canEdit flag is still true. Set value for editing. 
-            if (canEdit)
-            {
 
-                tbBLCharge.Text = basechrg;
-                Session["oldCharge"] = tbBLCharge.Text;
-                tbBLCharge.Enabled = true;
 
-            }
+
+            setBillingTB(canEdit, editBillValues);
+            Session["oldCharge"] = editBillValues;
+            Session["chargeFlag"] = canEdit;
+
+
+
         }
         MultiViewMain.ActiveViewIndex = 1;
     }
 
-    //This button is located in billing tab under editing fields. It navigates user to finish tab. Verifies if any sort of editing was actually done by user or not.
-    protected void btnFinish_Click(object sender, EventArgs e)
+    protected void setBillingTB(bool[] editBilling, List<string> editBillingValues)
     {
+        tbBLCharge.Enabled = editBilling[0];
+        tbBLCharge.Text = editBillingValues[0];
 
-        if (Session["oldCharge"] != null || (String)Session["oldCharge"] != "")
-        {
-            string str = (String)Session["oldCharge"];
-            str.Trim();
-            string str2 = tbBLCharge.Text;
-            str2.Trim();
-            bool res = str.Equals(str2);
-            if (!res)
-            {
-                GenerateSummary();
-            }
-            else
-            {
-                cbAgree.Visible = false;
-                btnComplete.Visible = false;
-                lblSummary.Text = "No changes made.";
-            }
-        }
-        else
-        {
-            cbAgree.Visible = false;
-            btnComplete.Visible = false;
-            lblSummary.Text = "No changes made.";
-        }
-        MultiViewMain.ActiveViewIndex = 12;
     }
 
-    // If any sort of changes were made. A dynamic table summary is generated using tihs fucntion.
-    protected void GenerateSummary()
+    protected List<string> getBilling()
     {
-        Table table = new Table();
-        table.ID = "Table1";
-        table.CssClass = "table table-striped table-hover table-condensed small";
+        List<string> result = new List<string>();
+        result.Add(tbBLCharge.Text);
 
-        phSummary.Controls.Add(table);
-        //Creating first row.
-        TableRow row = new TableRow();
-        TableCell cell0 = new TableCell();
-        Label lb = new Label();
-        lb.ID = "LabelBill";
-        lb.Text = lblBill.Text;
-        lb.Font.Bold = true;
-        cell0.Controls.Add(lb);
-        row.Cells.Add(cell0);
-        table.Rows.Add(row);
-
-        //Creating second row.
-        TableRow row1 = new TableRow();
-        TableCell cell1 = new TableCell();
-        row1.Cells.Add(cell1);
-        TableCell cell2 = new TableCell();
-        Label lb2 = new Label();
-        lb2.ID = "LabelOld";
-        lb2.Text = "Old Value";
-        lb2.Font.Bold = true;
-        cell2.Controls.Add(lb2);
-        row1.Cells.Add(cell2);
-        TableCell cell3 = new TableCell();
-        Label lb3 = new Label();
-        lb3.ID = "LabelNew";
-        lb3.Text = "New Value";
-        lb3.Font.Bold = true;
-        cell3.Controls.Add(lb3);
-        row1.Cells.Add(cell3);
-        table.Rows.Add(row1);
-
-        //Creating second row.
-        TableRow row2 = new TableRow();
-        TableCell cell4 = new TableCell();
-        Label lb4 = new Label();
-        lb4.ID = "LabelCharge";
-        lb4.Text = "Charges";
-        lb4.Font.Bold = true;
-        cell4.Controls.Add(lb4);
-        row2.Cells.Add(cell4);
-        TableCell cell5 = new TableCell();
-        Label lb5 = new Label();
-        lb5.Text = (string)Session["oldCharge"];
-
-
-        cell5.Controls.Add(lb5);
-        row2.Cells.Add(cell5);
-        TableCell cell6 = new TableCell();
-        Label lb6 = new Label();
-        lb6.ID = "LabelNewCharge";
-        lb6.Text = tbBLCharge.Text;
-
-        cell6.Controls.Add(lb6);
-        row2.Cells.Add(cell6);
-        table.Rows.Add(row2);
-        cbAgree.Visible = true;
-        btnComplete.Visible = true;
-        lblSummary.Text = "";
+        return result;
     }
-
     // Handles Bolus tracking tab.
     protected void cbBolusSelect_CheckedChanged(object sender, EventArgs e)
     {
@@ -849,8 +909,8 @@ public partial class multiviewDemo : System.Web.UI.Page
         //Store records information for selected device id.
         List<List<string>> reconseriesbrows = new List<List<string>>();
         // Boolean to enable or disable textboxes.Default they are false.
-        bool[] editReconSeries = new bool[27];
-        List<string> editReconSeriesValues = getNoneList(27);
+        bool[] editReconSeries = new bool[25];
+        List<string> editReconSeriesValues = getNoneList(25);
 
 
         //Disable all textboxes for editing and clear text.
@@ -901,6 +961,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             editReconSeries = setBoolArr(editReconSeries, true);
             // Store intial value in session to compare at the end.
             Session["oldReconSeries"] = reconseriesbrows[0];
+            Session["flagReconSeries"] = editReconSeries;
             // Enable textobx editing and set intial value of reocrds.
             setReconSeriesTB(editReconSeries, reconseriesbrows[0]);
 
@@ -937,6 +998,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             // Setting editing values. session state.
             setReconSeriesTB(editReconSeries, editReconSeriesValues);
             Session["oldReconSeries"] = editReconSeriesValues;
+            Session["flagReconSeries"] = editReconSeries;
 
 
         }
@@ -996,6 +1058,40 @@ public partial class multiviewDemo : System.Web.UI.Page
         tbSIRWindow.Text = editReconSeriesValues[23];
         tbSIRNosieSuppression.Enabled = editReconSeries[24];
         tbSIRNosieSuppression.Text = editReconSeriesValues[24];
+
+    }
+
+    protected List<string> getReconSeries()
+    {
+   
+    List<string> result = new List<string>();
+        result.Add(tbSIRDescription.Text);
+        result.Add(tbSIRDfov.Text);
+        result.Add(tbSIRAPCenter.Text);
+        result.Add(tbSIRRLCenter.Text);
+        result.Add(tbSIRThickness.Text);
+        result.Add(tbSIRReconInterval.Text);
+        result.Add(tbSIRAlgorithm.Text);
+        result.Add(tbSIRWWWL.Text);
+        result.Add(tbSIRSAFIRE.Text);
+        result.Add(tbSIRSAFIREStr.Text);
+        result.Add(tbSIRFast.Text);
+        result.Add(tbSIRKernel.Text);
+        result.Add(tbSIRSliceData.Text);
+        result.Add(tbSIRType.Text);
+        result.Add(tbSIRRegion.Text);
+        result.Add(tbSIRAxis.Text);
+        result.Add(tbSIR3DType.Text);
+        result.Add(tbSIRImgOrdr.Text);
+        result.Add(tbSIRAsir.Text);
+        result.Add(tbSIRDestinations.Text);
+        result.Add(tbSIRIncrements.Text);
+        result.Add(tbSIRFOV.Text);
+        result.Add(tbSIRSlice.Text);
+        result.Add(tbSIRWindow.Text);
+        result.Add(tbSIRNosieSuppression.Text);
+
+        return result;
 
     }
     //Handles Recon tab button.
@@ -1506,12 +1602,13 @@ public partial class multiviewDemo : System.Web.UI.Page
         MultiViewMain.ActiveViewIndex = 12;
         if (cbAgree.Checked)
         {
+            generateSummary();
             lblSummary.Text = "Changes made succesfully.";
             lblSummary.ForeColor = System.Drawing.Color.Green;
         }
         else
         {
-            GenerateSummary();
+            generateSummary();
             lblSummary.Text = "Please agree to terms and conditions.";
             lblSummary.ForeColor = System.Drawing.Color.Red;
         }
