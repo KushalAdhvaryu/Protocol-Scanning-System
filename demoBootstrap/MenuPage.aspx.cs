@@ -44,4 +44,33 @@ public partial class MenuPage : System.Web.UI.Page
     {
         Response.Redirect("coding.aspx");
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("multiviewDemo.aspx");
+    }
+
+
+
+    protected void btnReport_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReportQuery.aspx");
+    }
+
+    protected void ImageMap1_Click(object sender, ImageMapEventArgs e)
+    {
+        if(e.PostBackValue == "Head"){
+            lblDisplay.Text = "Head Protoocols will appear here.";
+        }
+        else if(e.PostBackValue == "Chest"){
+            lblDisplay.Text = "Chest Protoocols will appear here.";
+        }
+        else if (e.PostBackValue == "Stomach"){
+            lblDisplay.Text = "Stomach Protoocols will appear here.";
+        }
+        else if (e.PostBackValue == "Legs"){
+            lblDisplay.Text = "Legs Protoocols will appear here.";
+        }
+    }
+    
 }

@@ -1,10 +1,60 @@
+------------------- Log Table
+DROP TABLE editlog;
+
+Create sequence sequence_editlog start with 1
+  increment by 1
+  minvalue 1;
+
+CREATE TABLE editlog(
+      log_id  NUMBER CONSTRAINT log_lid_pk PRIMARY KEY ,
+      log_date date,
+      log_summary VARCHAR2(250 char) NOT NULL,
+      protocol_name VARCHAR2(75char) NOT NULL,
+      protocol_id NUMBER(3),
+      dt_of_change TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+      dt_of_approval TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+      changed_by VARCHAR2(250 char) NOT NULL,
+      approved_by  VARCHAR2(250 char),
+      isapproved VARCHAR2(250 char) DEFAULT ON NULL 'None'
+    );
+
+
+INSERT INTO editlog
+VALUES
+(1, sysdate,'Summary','Protocol1',2, systimestamp, systimestamp,'Kushal', 'Adhvaryu','No'); 
+INSERT INTO editlog
+VALUES
+(2, sysdate,'Summary','Protocol1',2, '08-AUG-17 03.36.41.318000000 PM', '08-AUG-17 03.36.41.318000000 PM','Kushal', 'Adhvaryu','No'); 
+INSERT INTO editlog
+VALUES
+(3, sysdate,'Summary','Protocol1',2, '09-AUG-17 03.36.41.318000000 PM', '09-AUG-17 03.36.41.318000000 PM','Kushal', 'Adhvaryu','No'); 
+INSERT INTO editlog
+VALUES
+(4, sysdate,'Summary','Protocol1',2, '10-AUG-17 03.36.41.318000000 PM', '10-AUG-17 03.36.41.318000000 PM','Kushal', 'Adhvaryu','No'); 
+INSERT INTO editlog
+VALUES
+(5, sysdate,'Summary','Protocol1',2, '11-AUG-17 03.36.41.318000000 PM', '11-AUG-17 03.36.41.318000000 PM','Kushal', 'Adhvaryu','No'); 
+INSERT INTO editlog
+VALUES
+(6, sysdate, 'Summary','Protocol1',2, '08-AUG-17 03.36.41.318000000 PM', '08-AUG-17 03.36.41.318000000 PM','Kushal', 'Adhvaryu','No'); 
+
+
+select count(distinct(log_date)) from editlog where protocol_id =2;
+select min(log_date) from editlog where protocol_id = 2;
+delete from editlog where
+log_date = (select min(log_date) from editlog where protocol_id = 2)
+and protocol_id = 2;
+
+
+
+
 --------------------- Protocol Table
 -- DROP Table Protocol 
 DROP TABLE protocol;
 DROP sequence sequence_protocol;
 
 -- Protocol Create Sequence
-Create sequence sequence_protocol start with 3
+Create sequence sequence_protocol start with 1
   increment by 1
   minvalue 1;
   
@@ -12,8 +62,8 @@ Create sequence sequence_protocol start with 3
 CREATE TABLE protocol
     (
       protocol_id  NUMBER(3) CONSTRAINT pro_pid_pk PRIMARY KEY ,
-      protocol_name VARCHAR2(75char),
-      protocol_source varchar2(25char)
+      protocol_name VARCHAR2(75char) NOT NULL,
+      protocol_source varchar2(25char) DEFAULT ON NULL 'None'
     );
 
 -- INSERT into Table Protocol
@@ -24,9 +74,13 @@ VALUES
 INSERT INTO protocol (protocol_id, protocol_name, protocol_source) 
 VALUES 
 (sequence_protocol.NEXTVAL, 'Second protocol', 'Word');
+
+INSERT INTO protocol (protocol_id, protocol_name, protocol_source) 
+VALUES 
+(sequence_protocol.NEXTVAL, 'Third protocol', ' ');
  
---- DELETE ROW from PROTOCOL table
--- DELETE FROM protocol WHERE protocol_id = 2;
+
+-- Fetch Sequence number.
 Select sequence_protocol.NEXTVAL From dual;
 
 --------------------- Billing Table
@@ -55,10 +109,10 @@ VALUES
 
 INSERT INTO billing (billing_id, charge,protocol_id_protocol) 
 VALUES 
-(sequence_billing.NEXTVAL, 'Second Billing',2);
+(sequence_billing.NEXTVAL, '73700C CT Lower Ext WO/CST Left 73700D CT Lower Ext WO/CST Right',46);
 
 --------------------- Device Name Table
--- DROP Table and Sequence Billing 
+-- DROP Table and Sequence device name 
 DROP TABLE device_name;
 DROP sequence sequence_device_name;
 
@@ -103,13 +157,13 @@ CREATE TABLE setup
       zero_location VARCHAR2(45char) NOT NULL ,
       orientation VARCHAR2(45char) NOT NULL ,
       dose_notification_value NUMBER(5,2) NOT NULL,
-      does_alert_value NUMBER(5,2) ,
-      instructions VARCHAR2(1000char) NOT NULL,
-      overview VARCHAR2(1000char) DEFAULT ON NULL 'None',
-      topogram VARCHAR2(45char) ,
-      excel_reference NUMBER(4),
+      does_alert_value NUMBER(5,2) DEFAULT ON NULL 0 ,
+      instructions VARCHAR2(250char) NOT NULL,
+      topogram VARCHAR2(45char) DEFAULT ON NULL 'None' ,
+      excel_reference NUMBER(4) DEFAULT ON NULL 0,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT set_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
+      
     );  
 
 -- INSERT Into setup
@@ -132,12 +186,13 @@ Create sequence sequence_medication start with 1
 CREATE TABLE medication
     (
       medication_id  NUMBER(3) CONSTRAINT med_mid_pk PRIMARY KEY ,
-      oral_contrast VARCHAR2(75char) ,
-      oral_contrast_notes VARCHAR2(250char) ,
-      iv_contrast VARCHAR2(75char) ,
-      iv_contrast_notes VARCHAR2(250char) ,
-      injection_rate VARCHAR2(75char) ,
-      injection_rate_notes VARCHAR2(250char) ,
+      oral_contrast VARCHAR2(75char)DEFAULT ON NULL 'None' ,
+      oral_contrast_notes VARCHAR2(250char) DEFAULT ON NULL 'None' ,
+      iv_contrast VARCHAR2(75char) DEFAULT ON NULL 'None' ,
+      iv_contrast_notes VARCHAR2(250char) DEFAULT ON NULL 'None' ,
+      injection_rate VARCHAR2(75char) DEFAULT ON NULL 'None' ,
+      injection_rate_notes VARCHAR2(250char) DEFAULT ON NULL 'None' ,
+      medication_url  VARCHAR2(250char) DEFAULT ON NULL 'None' ,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT med_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
     );  
@@ -165,23 +220,25 @@ CREATE TABLE scout
       scan_type VARCHAR2(45char) NOT NULL,
       scout_kv NUMBER(5,2) NOT NULL,
       scout_ma NUMBER(5,2) NOT NULL,
-      scout_direction VARCHAR2(45char) ,
+      scout_direction VARCHAR2(45char)  DEFAULT ON NULL 'None',
       scout_start  VARCHAR2(45char) NOT NULL,
       scout_end  VARCHAR2(45char) NOT NULL,
       scout_plane  VARCHAR2(45char)NOT NULL,
-      scout_ww_wl  VARCHAR2(45char),
-      scout_kernel  VARCHAR2(45char),
+      scout_ww_wl  VARCHAR2(45char)  DEFAULT ON NULL 'None',
+      scout_kernel  VARCHAR2(45char)  DEFAULT ON NULL 'None',
       scout_destination  VARCHAR2(45char) NOT NULL,
-      excel_reference NUMBER(4),
+      scout_length VARCHAR2(45char)  DEFAULT ON NULL 'None',
+      excel_reference NUMBER(4)  DEFAULT ON NULL 0,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT sco_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
+      
     );  
 
 -- INSERT Into Scout
 INSERT INTO scout  
 VALUES 
 (sequence_scout.NEXTVAL, 'Type', 1.2,2.3, 'Direction', 'Start', 'End', 'Plane', 
- 'Window', 'Kernel','Destination', 1, 2);
+ 'Window', 'Kernel','Destination', 1, 2,1);
  
 
  
@@ -205,28 +262,28 @@ CREATE TABLE protocol_scan
       rotation_time NUMBER(5,2) NOT NULL,
       scan_coverage NUMBER(5,2)  NOT NULL,
       scan_delay  NUMBER(5,2) NOT NULL,
-      scan_direction  VARCHAR2(45char),
+      scan_direction  VARCHAR2(45char)  DEFAULT ON NULL 'None',
       scan_thickness  NUMBER(5,2)  NOT NULL,
       scan_interval  NUMBER(5,2)  NOT NULL,
-      rotation_length  VARCHAR2(45char) ,
-      detector_coverage VARCHAR2(45char),
+      rotation_length  VARCHAR2(45char)  DEFAULT ON NULL 'None',
+      detector_coverage VARCHAR2(45char)  DEFAULT ON NULL 'None',
       pitch NUMBER(5,2)  NOT NULL,
       speed NUMBER(5,2)  NOT NULL,
-      tilt NUMBER(5,2),
+      tilt NUMBER(5,2)  DEFAULT ON NULL 0,
       sfov VARCHAR2(45char)  NOT NULL,
       care_dose4d VARCHAR2(45char)  NOT NULL,
       care_kv VARCHAR2(45char)  NOT NULL,
       dose_optimized_level NUMBER(5,2)  NOT NULL,
-      dual_energy VARCHAR2(45char),
-      hi_res VARCHAR2(45char),
-      cardiac VARCHAR2(45char),
-      number_of_scans NUMBER(5,2),
-      feed NUMBER(5,2),
-      ref_qrm NUMBER(5,2),
-      ref_kv NUMBER(5,2),
+      dual_energy VARCHAR2(45char)  DEFAULT ON NULL 'None',
+      hi_res VARCHAR2(45char)  DEFAULT ON NULL 'None',
+      cardiac VARCHAR2(45char)  DEFAULT ON NULL 'None',
+      number_of_scans NUMBER(5,2)  DEFAULT ON NULL 0,
+      feed NUMBER(5,2) DEFAULT ON NULL 0,
+      ref_qrm NUMBER(5,2) DEFAULT ON NULL 0,
+      ref_kv VARCHAR2(45char)  DEFAULT ON NULL 'None',
       scan_description VARCHAR2(250char)  NOT NULL,
-      ctdivol VARCHAR2(45char),
-      excel_reference NUMBER(4),
+      ctdivol VARCHAR2(45char) DEFAULT ON NULL 'None',
+      excel_reference NUMBER(4) DEFAULT ON NULL 0,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT scn_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
       
@@ -259,31 +316,31 @@ CREATE TABLE recon
     (
       recon_id  NUMBER(4) CONSTRAINT rec_rid_pk PRIMARY KEY ,
       description VARCHAR2(45char) NOT NULL,
-      dfov NUMBER(5,2) ,
-      a_p_center VARCHAR2(45char) ,
-      r_l_center VARCHAR2(45char) ,
-      thickness NUMBER(5,2)  ,
-      recon_interval NUMBER(5,2) ,
-      recon_algorithm  VARCHAR2(45char)NOT NULL,
+      dfov NUMBER(5,2) DEFAULT ON NULL 0 ,
+      a_p_center VARCHAR2(45char) DEFAULT ON NULL 'None',
+      r_l_center VARCHAR2(45char) DEFAULT ON NULL 'None',
+      thickness NUMBER(5,2) DEFAULT ON NULL 0 ,
+      recon_interval NUMBER(5,2) DEFAULT ON NULL 0 ,
+      recon_algorithm  VARCHAR2(45char) NOT NULL,
       ww_wl  VARCHAR2(45char)  NOT NULL,
-      safire  VARCHAR2(45char)  ,
-      safire_strength  VARCHAR2(45char) ,
-      recon_fast VARCHAR2(45char),
-      recon_kernel VARCHAR2(45char)  ,
-      recon_slice_data VARCHAR2(45char)  ,
+      safire  VARCHAR2(45char) DEFAULT ON NULL 'None'  ,
+      safire_strength  VARCHAR2(45char) DEFAULT ON NULL 'None' ,
+      recon_fast VARCHAR2(45char) DEFAULT ON NULL 'None',
+      recon_kernel VARCHAR2(45char) DEFAULT ON NULL 'None' ,
+      recon_slice_data VARCHAR2(45char) DEFAULT ON NULL 'None' ,
       recon_type VARCHAR2(45char) NOT NULL,
       recon_region VARCHAR2(45char)  NOT NULL,
       recon_axis VARCHAR2(45char)  NOT NULL,
       threed_type VARCHAR2(45char)  NOT NULL,
       image_order VARCHAR2(45char)  NOT NULL,
-      asir VARCHAR2(45char),
-      destinations VARCHAR2(45char)NOT NULL,
-      increments NUMBER(5,2)NOT NULL,
-      fov NUMBER(5,2)NOT NULL,
-      slice NUMBER(5,2)NOT NULL,
-      window VARCHAR2(45char),
-      noise_supression VARCHAR2(45char),
-      excel_reference NUMBER(4),
+      asir VARCHAR2(45char) DEFAULT ON NULL 'None',
+      destinations VARCHAR2(45char) NOT NULL,
+      increments NUMBER(5,2) NOT NULL,
+      fov NUMBER(5,2) NOT NULL,
+      slice NUMBER(5,2) NOT NULL,
+      window VARCHAR2(45char) DEFAULT ON NULL 'None',
+      noise_supression VARCHAR2(45char) DEFAULT ON NULL 'None',
+      excel_reference NUMBER(4) DEFAULT ON NULL 0,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT rec_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
     );  
@@ -315,13 +372,13 @@ Create sequence sequence_routine start with 1
 CREATE TABLE routine
     (
       routine_id  NUMBER(4) CONSTRAINT rou_roid_pk PRIMARY KEY ,
-      eff_mas VARCHAR2(45char) ,
-      kv VARCHAR2(45char) ,
-      routine_delay NUMBER(4) ,
-      slice VARCHAR2(45char) ,
-      dose_notification_value NUMBER(5,2) ,
-      x_care VARCHAR2(45char) ,
-      range_4d VARCHAR2(45char),
+      eff_mas VARCHAR2(45char) DEFAULT ON NULL 'None',
+      kv VARCHAR2(45char) DEFAULT ON NULL 'None',
+      routine_delay NUMBER(4) DEFAULT ON NULL 0,
+      slice VARCHAR2(45char) DEFAULT ON NULL 'None',
+      dose_notification_value NUMBER(5,2) DEFAULT ON NULL 0,
+      x_care VARCHAR2(45char) DEFAULT ON NULL 'None',
+      range_4d VARCHAR2(45char) DEFAULT ON NULL 'None',
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT rou_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
     );  
@@ -350,10 +407,10 @@ Create sequence sequence_bolus_tracking start with 1
 CREATE TABLE bolus_tracking
     (
       bolus_tracking_id  NUMBER(4) CONSTRAINT bol_btid_pk PRIMARY KEY ,
-      mas NUMBER(5,2) ,
-      kv NUMBER(5,2) ,
-      bolus_delay NUMBER(5,2) ,
-      bolus_trigger NUMBER(5,2) ,
+      mas NUMBER(5,2) DEFAULT ON NULL 0,
+      kv NUMBER(5,2) DEFAULT ON NULL 0,
+      bolus_delay NUMBER(5,2) DEFAULT ON NULL 0,
+      bolus_trigger NUMBER(5,2) DEFAULT ON NULL 0,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT bol_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
     );  
@@ -361,7 +418,7 @@ CREATE TABLE bolus_tracking
 -- INSERT Into Bolus Tracking
 INSERT INTO bolus_tracking  
 VALUES 
-(sequence_bolus_tracking.NEXTVAL, 1.2, 2.3, 3.4, 4.5, 2);
+(sequence_bolus_tracking.NEXTVAL, 0, 0, 0, 0, 46);
 
 --------------------- Recon  tab Table
 -- DROP Table and Sequence Recon tab
@@ -378,31 +435,31 @@ CREATE TABLE recon_tab
     (
       recon_id  NUMBER(4) CONSTRAINT rect_rtid_pk PRIMARY KEY ,
       description VARCHAR2(45char) NOT NULL,
-      dfov NUMBER(5,2) ,
-      a_p_center VARCHAR2(45char) ,
-      r_l_center VARCHAR2(45char) ,
-      thickness NUMBER(5,2)  ,
-      recon_interval NUMBER(5,2) ,
-      recon_algorithm  VARCHAR2(45char)NOT NULL,
+      dfov NUMBER(5,2) DEFAULT ON NULL 0,
+      a_p_center VARCHAR2(45char) DEFAULT ON NULL 'None',
+      r_l_center VARCHAR2(45char) DEFAULT ON NULL 'None',
+      thickness NUMBER(5,2) DEFAULT ON NULL 0 ,
+      recon_interval NUMBER(5,2) DEFAULT ON NULL 0,
+      recon_algorithm  VARCHAR2(45char) NOT NULL,
       ww_wl  VARCHAR2(45char)  NOT NULL,
-      safire  VARCHAR2(45char)  ,
-      safire_strength  VARCHAR2(45char) ,
-      recon_fast VARCHAR2(45char),
-      recon_kernel VARCHAR2(45char)  ,
-      recon_slice_data VARCHAR2(45char)  ,
+      safire  VARCHAR2(45char) DEFAULT ON NULL 'None' ,
+      safire_strength  VARCHAR2(45char) DEFAULT ON NULL 'None' ,
+      recon_fast VARCHAR2(45char) DEFAULT ON NULL 'None',
+      recon_kernel VARCHAR2(45char) DEFAULT ON NULL 'None' ,
+      recon_slice_data VARCHAR2(45char) DEFAULT ON NULL 'None' ,
       recon_type VARCHAR2(45char) NOT NULL,
       recon_region VARCHAR2(45char)  NOT NULL,
       recon_axis VARCHAR2(45char)  NOT NULL,
       threed_type VARCHAR2(45char)  NOT NULL,
       image_order VARCHAR2(45char)  NOT NULL,
-      asir VARCHAR2(45char),
-      destinations VARCHAR2(45char)NOT NULL,
-      increments NUMBER(5,2)NOT NULL,
-      fov NUMBER(5,2)NOT NULL,
-      slice NUMBER(5,2)NOT NULL,
-      window VARCHAR2(45char),
-      noise_supression VARCHAR2(45char),
-      excel_reference NUMBER(4),
+      asir VARCHAR2(45char) DEFAULT ON NULL 'None',
+      destinations VARCHAR2(45char) NOT NULL,
+      increments NUMBER(5,2) NOT NULL,
+      fov NUMBER(5,2) NOT NULL,
+      slice NUMBER(5,2) NOT NULL,
+      window VARCHAR2(45char) DEFAULT ON NULL 'None',
+      noise_supression VARCHAR2(45char) DEFAULT ON NULL 'None',
+      excel_reference NUMBER(4) DEFAULT ON NULL 0,
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT rect_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
     );  
@@ -430,8 +487,9 @@ Create sequence sequence_media start with 1
 CREATE TABLE media
     (
       media_id  NUMBER(4) CONSTRAINT mda_matid_pk PRIMARY KEY ,
-      pdf_name VARCHAR2(250char) ,
-      pdf_version VARCHAR2(45char) ,
+      pdf_name VARCHAR2(250char) DEFAULT ON NULL 'None',
+      pdf_version NUMBER(8,3) DEFAULT ON NULL 1,
+      pdf_url VARCHAR2(250char) DEFAULT ON NULL 'None',
       protocol_id_protocol NUMBER(3) NOT NULL CONSTRAINT mda_pid_fk 
         REFERENCES protocol(protocol_id) ON DELETE cascade
     );  
@@ -439,7 +497,7 @@ CREATE TABLE media
 -- INSERT Into Media
 INSERT INTO media  
 VALUES 
-(sequence_media.NEXTVAL, 'C:/abc/xyz.pdf', '1.2.3',2);
+(sequence_media.NEXTVAL, 'doc1', '1.2.3','C:/abc/xyz.pdf',2);
 
 --------------------------- Reconstruction Sequence
 Create sequence sequence_reconstruction start with 1
@@ -460,5 +518,95 @@ Create sequence sequence_local_radiograph start with 1
   increment by 1
   minvalue 1;
 
-DROP sequence sequence_local_radiogrph;
+DROP sequence sequence_local_radiograph;
+
+Create table username
+  (
+      user_id  NUMBER(4) CONSTRAINT un_uid_pk PRIMARY KEY ,
+      protocol_id NUMBER(4),
+      firstName VARCHAR2(250char) DEFAULT ON NULL 'None',
+      lastName VARCHAR2(250char) DEFAULT ON NULL 'None'
+      
+    );  
+
+Drop table username;  
+INSERT into username
+VALUES
+(1,1,'Kushal','Adhvaryu');
+INSERT into username
+VALUES
+(2,1,'Santosh','Bidve');
+INSERT into username
+VALUES
+(3,1,'Hitendra','Shukla');
+INSERT into username
+VALUES
+(4,2,'Mohamad','Shekh');
+INSERT into username
+VALUES
+(5,2,'Mohseen','Mukkadam');
+
+
+Create table tmp_username
+  (
+      tmp_id  NUMBER(4) CONSTRAINT tun_uid_pk PRIMARY KEY ,
+      user_id NUMBER(4),
+      protocol_id NUMBER(4),
+      change_req_id NUMBER(4),
+      firstName VARCHAR2(250char) DEFAULT ON NULL 'None',
+      lastName VARCHAR2(250char) DEFAULT ON NULL 'None'
+      
+    );  
   
+Drop table tmp_username;
+---- Create a row in temp table.
+INSERT into tmp_username
+VALUES
+(1, 1, 1, 1,'Kushal','Dholakia');
+
+-- Insert above created row in persistent table.
+INSERT into username (user_id,firstName, lastName, role)
+SELECT user_id, firstName,lastName, role from tmp_username where tmp_username.user_id = 1;
+
+--- Creates a record to update username.
+INSERT into tmp_username
+VALUES
+(3,1, 'Hitendra','Shukla','Doctor');
+
+-- Updates row id =1 in username table copying values from row id=2 in tmp table.
+UPDATE username SET( firstName, lastName) = 
+(Select tmp_username.firstName, tmp_username.lastname from tmp_username ,username
+where 
+username.user_id = tmp_username.user_id and
+username.protocol_id = tmp_username.protocol_id and
+tmp_username.change_req_id = 1)
+where
+user_id = (Select tmp_username.user_id from tmp_username ,username
+where 
+username.user_id = tmp_username.user_id and
+username.protocol_id = tmp_username.protocol_id and
+tmp_username.change_req_id = 1);
+
+Select tmp_username.firstName, tmp_username.lastname from tmp_username , username
+where 
+username.user_id = tmp_username.user_id and
+username.protocol_id = tmp_username.protocol_id and
+tmp_username.change_req_id = 1;
+
+Select tmp_username.user_id from tmp_username ,username
+where 
+username.user_id = tmp_username.user_id and
+username.protocol_id = tmp_username.protocol_id and
+tmp_username.change_req_id = 1;
+
+select billing.billing_id, protocol.protocol_name, billing.charge from protocol, billing 
+where
+billing.protocol_id_protocol =protocol.protocol_id and
+billing.protocol_id_protocol IN (41,46) order by protocol.protocol_name asc;
+
+select * from billing where protocol_id_protocol in (41,46);
+
+
+select bill.billing_id, protocol.protocol_name, bill.charge from protocol JOIN billing bill ON bill.protocol_id_protocol =protocol.protocol_id where bill.protocol_id_protocol IN (41,46) order by protocol.protocol_name asc;
+
+select bolus.bolus_tracking_id, protocol.protocol_name, bolus.mas, bolus.kv, bolus.bolus_delay, bolus.bolus_trigger, bolus.protocol_id_protocol from protocol join bolus_tracking bolus where bolus.protocol_id_protocol = protocol.protocol_id and bolus.protocol_id_protocol IN (41) order by protocol.protocol_name asc;

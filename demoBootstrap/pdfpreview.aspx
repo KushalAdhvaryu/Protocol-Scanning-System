@@ -11,10 +11,16 @@
 <body>
     <form id="form1" runat="server">
     <div id="example1">
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-        <iframe src="E:\ProtocolDB\Working717\untitled\output\testpdf1.pdf" width="100%" height="100%" style="border: none;">
+       
+        <iframe src="PDF/testpdf.pdf" width="100%" height="100%" style="border: none;">
             This browser does not support PDFs. Please download the PDF to view it: <a href="/pdf/sample-3pp.pdf">Download PDF</a>
         </iframe>
+        <input id="Button1" type="button" value="button" onclick="playPause()"/>
+        
+         <iframe src="http://techslides.com/demos/sample-videos/small.mp4" width="100%" height="100%" style="border: none;">
+            This browser does not support PDFs. Please download the PDF to view it: <a href="/pdf/sample-3pp.pdf">Download PDF</a>
+        </iframe>
+     
        
     </div>
     </form>

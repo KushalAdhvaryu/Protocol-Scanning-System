@@ -72,7 +72,8 @@
                 <div>
                     <asp:Label ID="lblProtocols" runat="server"></asp:Label><br />
                 </div>
-                <asp:Button ID="btnSelectProtocol" runat="server" Text="Select Protocols"  CssClass="btn btn-primary " OnClick="btnSelectProtocol_Click" />
+                <asp:Button ID="btnSelectProtocol" runat="server" Text="Select Protocols"  CssClass="btn btn-primary " OnClick="btnSelectProtocol_Click" /><br />
+                <asp:Label ID="lblPmsg" runat="server"></asp:Label>
             </asp:View>
 
              <asp:View ID="View2" runat="server">
@@ -90,6 +91,11 @@
                             <asp:HiddenField ID="hfBillId" runat="server" Value='<%#Eval("billing_id") %>' />
                         </itemtemplate>
                         </asp:templatefield>
+                         <asp:TemplateField HeaderText="Protocol Name" >
+                        <ItemTemplate>
+                            <asp:Label ID="lblBillProtocolName" runat="server" Text='<%#Eval("protocol_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Charges" >
                         <ItemTemplate>
                             <asp:Label ID="lblCharge" runat="server" Text='<%#Eval("charge") %>'></asp:Label>
@@ -128,6 +134,11 @@
                             <asp:HiddenField ID="hfBolusId" runat="server" Value='<%#Eval("bolus_tracking_id") %>' />
                         </itemtemplate>
                         </asp:templatefield>
+                         <asp:TemplateField HeaderText="Protocol Name" >
+                        <ItemTemplate>
+                            <asp:Label ID="lblBolusProtocolName" runat="server" Text='<%#Eval("protocol_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="mAs" >
                         <ItemTemplate>
                             <asp:Label ID="lblBTmas" runat="server" Text='<%#Eval("mas") %>'></asp:Label>
@@ -186,6 +197,11 @@
                             <asp:HiddenField ID="hfDeviceId" runat="server" Value='<%#Eval("device_name_id") %>' />
                         </itemtemplate>
                         </asp:templatefield>
+                          <asp:TemplateField HeaderText="Protocol Name" >
+                        <ItemTemplate>
+                            <asp:Label ID="lblDeviceProtocolName" runat="server" Text='<%#Eval("protocol_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Brand">
                         <ItemTemplate>
                             <asp:Label ID="lblBrand" runat="server" Text='<%#Eval("brand") %>'></asp:Label>
@@ -1381,9 +1397,12 @@
             <asp:View ID="View13" runat="server">
              <!--   <asp:TextBox ID="TextBox13" runat="server" Text="Final Summary" CssClass="form-control"></asp:TextBox> -->
                 <h3>Summary:<small>In case there appears a value which is not modified is just because spacing has got modified by Website otherwise values are same.</small></h3>
-                <asp:PlaceHolder ID="phSummary" runat="server"></asp:PlaceHolder>
+                
                 <asp:PlaceHolder ID="phSeries" runat="server"></asp:PlaceHolder>
                 <div>
+                    <p><strong> Log that will be stored in Database.</strong></p>
+                   
+                   <textarea id="taLog"  class="form-control small input-md" runat="server"   rows="3"></textarea>
                     <asp:CheckBox ID="cbAgree" runat="server" Text='I agree to above changes.' />
                    
             </div>

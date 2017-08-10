@@ -17,7 +17,7 @@ public partial class coding : System.Web.UI.Page
         {
             string protocolid = (string)Session["ProtocolId"];
             int id = Convert.ToInt32(protocolid);
-
+            
             string path = DataHandling.getMediaPath(id);
             urlFrame.Attributes.Add("src", "PDF/testpdf.pdf");
             lblProtocolName.Text = DataHandling.getProtocolName(id);
@@ -426,28 +426,35 @@ public partial class coding : System.Web.UI.Page
         
     }
 
-  /*  protected void updateBolusTracking()
-    {
-        List<String> bolusValues = new List<String>();
-        bolusValues.Add(tbBTMas.Text);
-        bolusValues.Add(tbBTKv.Text);
-        bolusValues.Add(tbBTDelay.Text);
-        bolusValues.Add(tbBTTrigger.Text);
-        int protocol_id = Convert.ToInt32(Session["ProtocolId"]);
-        string result = DataUpdating.setBolusTracking(bolusValues, protocol_id);
-        lblBolusStatus.Visible = true;
-        lblBolusStatus.Text = result;
-    }
+    /*  protected void updateBolusTracking()
+      {
+          List<String> bolusValues = new List<String>();
+          bolusValues.Add(tbBTMas.Text);
+          bolusValues.Add(tbBTKv.Text);
+          bolusValues.Add(tbBTDelay.Text);
+          bolusValues.Add(tbBTTrigger.Text);
+          int protocol_id = Convert.ToInt32(Session["ProtocolId"]);
+          string result = DataUpdating.setBolusTracking(bolusValues, protocol_id);
+          lblBolusStatus.Visible = true;
+          lblBolusStatus.Text = result;
+      }
 
-    protected void setEditingElements()
+      protected void setEditingElements()
+      {
+          taProtocolOverview.Disabled = false;
+          taSplInstruction.Disabled = false;
+        //  SubmitBtn.Enabled = true;
+      }
+      protected void SubmitBtn_Click(object sender, EventArgs e)
+      {
+          updateBolusTracking();
+          //Response.Write("<Script>alert('Save and Update Button Clicked.')</Script>");
+      } */
+
+    protected void btnPlayVideo_Click(object sender, EventArgs e)
     {
-        taProtocolOverview.Disabled = false;
-        taSplInstruction.Disabled = false;
-      //  SubmitBtn.Enabled = true;
+        string path = "http://techslides.com/demos/sample-videos/small.mp4";
+        Iframe1.Attributes.Add("src", path);
+        
     }
-    protected void SubmitBtn_Click(object sender, EventArgs e)
-    {
-        updateBolusTracking();
-        //Response.Write("<Script>alert('Save and Update Button Clicked.')</Script>");
-    } */
 }

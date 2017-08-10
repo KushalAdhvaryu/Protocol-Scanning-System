@@ -21,6 +21,7 @@
 <body>
     
     <form id="form1" runat="server">
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
        <div id="draggable1" class="ui-widget-content">
        <div class="col-md-6">
    <div class="panel panel-primary">

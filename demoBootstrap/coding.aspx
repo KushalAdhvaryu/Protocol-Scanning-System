@@ -488,6 +488,23 @@
                         <iframe id="urlFrame" runat="server" width="900" height="1000" style="border: none;">
             This browser does not support PDFs. Please download the PDF to view it: 
         </iframe>
+                      
+                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                             <ContentTemplate>
+                                 <div>
+                                     <asp:Button ID="btnPlayVideo" CssClass="btn btn-primary btn-sm" runat="server" Text="Watch Video Here." OnClick="btnPlayVideo_Click" /><br />
+                                 </div>
+                                 <div>
+                                     <br />
+                                         <iframe id="Iframe1" runat="server" width="900" height="300" style="border: none;" allowfullscreen="true">
+            This browser does not support PDFs. Please download the PDF to view it: 
+        </iframe>
+                                 </div>
+                            
+
+                             </ContentTemplate>
+                         </asp:UpdatePanel>
+                         
                      </div>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -101,13 +103,14 @@ public partial class multiviewDemo : System.Web.UI.Page
     // Generate Summary
     protected void generateSummary()
     {
+        taLog.Value = "";
         //We verify for each tab if their session exists. This is required since session is created only if user visits tab and selects checkbox for the record.
         // Billing Tab.
         if (Session["oldCharge"] != null && Session["chargeFlag"] != null)
         {
-            string tempSeries = (string)Session["oldCharge"];
-            List<string> unwrapSeries = new List<string>();
-            unwrapSeries.Add(tempSeries);
+            
+            List<string> unwrapSeries =  (List<string>)Session["oldCharge"];
+            
             // Fetch values from Textboxes at current state.
             List<string> newSeries = getBilling();
             // Gives indication that only ith index textbox are enabled. We check only them.
@@ -116,7 +119,9 @@ public partial class multiviewDemo : System.Web.UI.Page
             // This data structure stores information as Index of label in Series list, OldValue, NewValue.
             List<List<string>> modifiedSeries = getModifiedInfo(unwrapSeries, newSeries, flagSeries);
 
-            List<string> series_labels = new List<string> { "Charge" };         
+            List<string> series_labels = new List<string> { "Charge" };
+            taLog.Value +=  populateSummary(modifiedSeries, series_labels, "Billing");
+           
             phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Billing"));
         }
         //Bolus Tracking
@@ -129,7 +134,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagBolus);
 
             List<string> series_labels = new List<string> { "mAs","kV","Delay", "Trigger (HU)" };
-
+            taLog.Value += populateSummary(modifiedSeries, series_labels, "Bolus Tracking");
             phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Bolus Tracking"));
         }
         // Device Name
@@ -142,7 +147,7 @@ public partial class multiviewDemo : System.Web.UI.Page
             List<List<string>> modifiedSeries = getModifiedInfo(unwrapOldValues, newValues, flagDevice);
 
             List<string> series_labels = new List<string> { "Brand", "Scanner", "Device Number" };
-
+            taLog.Value += populateSummary(modifiedSeries, series_labels, "Device Name");
             phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Device Name"));
         }
         //Media 
@@ -267,7 +272,30 @@ public partial class multiviewDemo : System.Web.UI.Page
             phSeries.Controls.Add(populateTable(modifiedSeries, series_labels, "Setup"));
         }
     }
+    // This function will generate in form of paragraph.
+    protected string populateSummary(List<List<string>> Values, List<string> lables, string section_name)
+    {
+        
+        StringBuilder sb = new StringBuilder();
+        sb.Append("\n ");
+        sb.Append(section_name);
+        sb.Append(":-");
+        for (int i=0; i < Values.Count; i++)
+        {
+            sb.Append("\n ");
+            sb.Append( lables[i] + ": " );
+            sb.Append(" ");
+            sb.Append(Values[i][1]);
+            sb.Append(" -> ");
+            sb.Append(Values[i][2]);
 
+        }
+        sb.Append(". \n");
+
+
+
+        return sb.ToString();
+    }
     // This function will compare two list return List of List of type String where Each List of string is tuple with 0: index, 1: old value, 2: new value.
     protected List<List<string>> getModifiedInfo(List<string> oldValues, List<string> newValues, bool[] flags)
     {
@@ -397,29 +425,40 @@ public partial class multiviewDemo : System.Web.UI.Page
     protected void btnSelectProtocol_Click(object sender, EventArgs e)
     {
         setSessionClear();
-        MultiViewMain.ActiveViewIndex++;
-        gvBilling.DataSource = EditingData.getBilling((List<string>)Session["PId"]);
-        gvBilling.DataBind();
-        gvDeviceName.DataSource = EditingData.getDeviceName((List<string>)Session["PId"]);
-        gvDeviceName.DataBind();
-        gvBolusTracking.DataSource = EditingData.getBolusTracking((List<string>)Session["PId"]);
-        gvBolusTracking.DataBind();
-        gvMedia.DataSource = EditingData.getMedia((List<string>)Session["PId"]);
-        gvMedia.DataBind();
-        gvMedication.DataSource = EditingData.getMedication((List<string>)Session["PId"]);
-        gvMedication.DataBind();
-        gvScan.DataSource = EditingData.getProtocolScan((List<string>)Session["PId"]);
-        gvScan.DataBind();
-        gvReconSeries.DataSource = EditingData.getReconSeries((List<string>)Session["PId"]);
-        gvReconSeries.DataBind();
-        gvReconTab.DataSource = EditingData.getReconTab((List<string>)Session["PId"]);
-        gvReconTab.DataBind();
-        gvRoutine.DataSource = EditingData.getRoutine((List<string>)Session["PId"]);
-        gvRoutine.DataBind();
-        gvScout.DataSource = EditingData.getScout((List<string>)Session["PId"]);
-        gvScout.DataBind();
-        gvSetup.DataSource = EditingData.getSetup((List<string>)Session["PId"]);
-        gvSetup.DataBind();
+        List<string> sPid = (List<string>)Session["PId"];
+        if (sPid.Count == 0)
+        {
+            lblPmsg.Text = "Select at least one protocol";
+            lblPmsg.ForeColor = System.Drawing.Color.Red;
+        }
+        else
+        {
+            MultiViewMain.ActiveViewIndex++;
+            gvBilling.DataSource = EditingData.getBilling((List<string>)Session["PId"]);
+            gvBilling.DataBind();
+            gvDeviceName.DataSource = EditingData.getDeviceName((List<string>)Session["PId"]);
+            gvDeviceName.DataBind();
+            gvBolusTracking.DataSource = EditingData.getBolusTracking((List<string>)Session["PId"]);
+            gvBolusTracking.DataBind();
+            gvMedia.DataSource = EditingData.getMedia((List<string>)Session["PId"]);
+            gvMedia.DataBind();
+            gvMedication.DataSource = EditingData.getMedication((List<string>)Session["PId"]);
+            gvMedication.DataBind();
+            gvScan.DataSource = EditingData.getProtocolScan((List<string>)Session["PId"]);
+            gvScan.DataBind();
+            gvReconSeries.DataSource = EditingData.getReconSeries((List<string>)Session["PId"]);
+            gvReconSeries.DataBind();
+            gvReconTab.DataSource = EditingData.getReconTab((List<string>)Session["PId"]);
+            gvReconTab.DataBind();
+            gvRoutine.DataSource = EditingData.getRoutine((List<string>)Session["PId"]);
+            gvRoutine.DataBind();
+            gvScout.DataSource = EditingData.getScout((List<string>)Session["PId"]);
+            gvScout.DataBind();
+            gvSetup.DataSource = EditingData.getSetup((List<string>)Session["PId"]);
+            gvSetup.DataBind();
+        }
+        
+       
         
 
     }
@@ -484,7 +523,9 @@ public partial class multiviewDemo : System.Web.UI.Page
         if (billid.Count == 1)
         {
             canEdit = setBoolArr(canEdit, true);
-            Session["oldCharge"] = chargerows[0];
+            List<string> temp = new List<string>();
+            temp.Add(chargerows[0]);
+            Session["oldCharge"] = temp;
             Session["chargeFlag"] = canEdit;
             setBillingTB(canEdit, chargerows);
         }

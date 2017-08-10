@@ -8,6 +8,32 @@
     <h1>CT Protocol</h1>      
     
   </div>
+         <div class="panel panel-primary">
+    <div class="panel-heading">Options </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 text-center">
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+            <tr>
+                    <td><asp:Button ID="btnEdit" runat="server" Text="Edit Protocol" CssClass="btn btn-primary btn-sm" OnClick="btnEdit_Click" /></td>
+                 <td><asp:Button ID="btnReport" runat="server" Text="Report Queries" CssClass="btn btn-primary btn-sm" OnClick="btnReport_Click"  /></td>
+           
+                   
+            </tr>
+                       
+        </table>
+                </div>
+                
+                
+         
+                 
+            </div>
+        </div>
+    </div>     
+    </div> 
   <div class="panel panel-primary">
     <div class="panel-heading">Choose Protocol to View </div>
     <div class="panel-body">
@@ -36,6 +62,31 @@
                  
             </div>
         </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+         <div class="row">
+            <div class="col-md-3 text-center">
+                <asp:ImageMap ID="ImageMap1" runat="server" AlternateText="Image  Map Demo" 
+            HotSpotMode="PostBack" ImageUrl="~/Image/HumanBody.jpg" Width="300px" Height="600px" OnClick="ImageMap1_Click">
+            <asp:RectangleHotSpot AlternateText="Page1" Top="0" Bottom="100" Right="300" PostBackValue="Head"
+                 />
+            <asp:RectangleHotSpot AlternateText="Page 2" Top="101" Bottom="200"  Right="300"
+                PostBackValue="Chest"
+                />
+            <asp:RectangleHotSpot AlternateText="Page 3" Top="201" Bottom="300" Right="300" PostBackValue="Stomach"
+                 />
+            <asp:RectangleHotSpot AlternateText="Page 4"  Top="301" Bottom="400" Right="300" PostBackValue="Legs"
+               />
+        </asp:ImageMap>
+            </div>
+            <div class="col-md-6 text-center">
+                <strong><asp:Label ID="lblDisplay" CssClass="h1" runat="server" Text="Click on body part to view protocols" ></asp:Label></strong>
+               
+                 
+            </div>
+        </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
     </div>     
     </div>     
 </div>
